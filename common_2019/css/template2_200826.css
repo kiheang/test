@@ -1,0 +1,141 @@
+/* 200826 추가 */
+
+/********** common **********/
+.block {display: block !important;}
+.inline {display: inline-block !important;}
+.center {text-align: center;}
+
+.mb0 {margin-bottom: 0 !important;}
+.mb40 {margin-bottom: 40px;}
+.ml20 {margin-left: 20px;}
+
+.fc_or {color: #ff6d26 !important;}
+.fc_gray {color: #888 !important;}
+.fc_green {color: #00a493;}
+.fw500 {font-weight: 500;}
+.fw600 {font-weight: 600;}
+
+.table_k_all {word-break: keep-all;}
+
+
+/* 게시판 */
+
+/* 목록 */
+.bu_li li {position: relative; padding-left: 10px;}
+.bu_li li::before {display: block; position: absolute; left: 0; top: 50%; width: 6px; height: 1px; background: #888;}
+
+
+/** 200911 추가 **/
+
+/* 게시판 */
+.town_slide {position: relative; padding: 15px 80px; margin-bottom: 30px; background: #2a77ce; border-radius: 50px; text-align: center;}
+.town_slide a {display: block; margin-left: 10px; padding: 4px 0; background: rgba(255,255,255,0.2); font-family: "Noto Sans KR"; font-weight: 300; font-size: 15px; color: #fff; text-decoration: none;}
+.town_slide a.active {background-color: #fff; font-weight: 400; color: #0159bc;}
+.town_slide a:first-child {margin: 0;}
+.town_slide .slick-arrow {position: absolute; top: 15px; width: 30px; height: 30px; background: #fff url(../images/board/common/prev1.png) no-repeat center; border-radius: 50%; font-size: 0; line-height: 0;}
+.town_slide .slick-arrow.slick-prev {left: 13px;}
+.town_slide .slick-arrow.slick-next {right: 13px; background: #fff url(../images/board/common/next1.png) no-repeat left 9px center;}
+
+.row.row2 {margin-bottom: 15px; margin-right: 0;}
+.row_select {overflow: hidden; float:right;}
+.row_select a {float: left; width: 34px; height: 34px; margin-left: 5px; background: url(../images/board/common/board_btn_list_off.png) no-repeat center; border: 1px solid #c0c2cb;}
+.row_select a.active {background: url(../images/board/common/board_btn_list_on.png) no-repeat center; border: 1px solid #315aac;}
+.row_select a:last-child {background: url(../images/board/common/board_btn_box_off.png) no-repeat center;}
+.row_select a:last-child.active {background: url(../images/board/common/board_btn_box_on.png) no-repeat center;}
+
+.board_tab > li {display: none; word-break: keep-all;}
+.board_tab > li.active {display: block;}
+.pro_table .m_tit {display: none;}
+.pro_table {font-family: "Noto Sans KR";}
+.pro_table th:first-child {width: 10%;}
+.pro_table th:nth-child(2) {width: 24%; text-align: left;}
+.pro_table td:nth-child(2) {text-align: left; word-break: break-all;}
+.pro_table th:nth-child(3), .pro_table th:nth-child(4) {width: 13%;}
+.pro_table th:nth-child(5) {width: 10%;}
+.pro_table td:first-child, .pro_table td:last-child {font-weight: 500; line-height: 1em;}
+.pro_table td a {display: block; text-decoration: none;}
+.pro_receipt {color: #ff7200;}
+.pro_occasional {color: #1d63c3;}
+.pro_deadline {color: #888;}
+.m_board_list {display: none;}
+
+.board_box {overflow: hidden;}
+.board_box li {float: left; width: calc(33.3% - 14px); margin-right: 20px; margin-top: 20px; vertical-align: top;}
+.board_box li:nth-child(3n) {margin-right: 0;}
+.board_box li:first-child, .board_box li:nth-child(2), .board_box li:nth-child(3) {margin-top: 0;}
+.board_box li a {display: block; padding: 26px; border: 1px solid #d3d3d3; text-decoration: none;}
+.board_box li a > span {float: left; display: block; padding: 1px 8px; margin-right: 5px; margin-bottom: 15px; font-size: 13px;}
+.board_box .town {color: #008073; border: 1px solid #008073;}
+.board_box .pro_receipt {border: 1px solid #ff7200;}
+.board_box .pro_occasional {border: 1px solid #1d63c3;}
+.board_box .pro_deadline {border: 1px solid #888;}
+.board_box dl {clear: both;}
+.board_box dt {margin-bottom: 24px; font-size: 20px; font-weight: 700; color: #000; line-height: 1.2em; display: -webkit-box; overflow: hidden; text-overflow: ellipsis; white-space: normal; -webkit-line-clamp: 2; -webkit-box-orient: vertical; height: 46px; word-break: keep-all;}
+.board_box dd {position: relative; padding-left: 10px;}
+.board_box dd::before {display: block; position: absolute; top: 50%; left: 0; width: 3px; height: 3px; background: #6c6c6c; border-radius: 50%;}
+.board_box dd em {display: inline-block; width: 70px; font-size: 14px; font-weight: 500; color: #000;}
+.board_box dd span {display: inline-block; font-size: 14px; color: #555; letter-spacing: -0.05em;}
+
+/* 게시판 상세 */
+.pro_bbs_wiew {font-family: "Noto Sans KR";}
+.pro_bbs_wiew .block {display: table !important;}
+
+/* 우리동 현황 */
+.town_bullet {font-family: "Noto Sans KR";}
+
+/* 동이름 유래 */
+.town_origin {padding-bottom: 10px; font-family: "Noto Sans KR";}
+.town_origin p {margin-bottom: 20px; font-size: 15px; color: #3d3d3d; word-break: keep-all;}
+.town_origin .box_img {margin-bottom: 40px;}
+
+.m_img {display: none;}
+
+
+/********** respond **********/
+
+@media screen and (max-width:1000px) {
+  /* 게시판 */
+  .board_box li {width: calc(50% - 10px);}
+  .board_box li:nth-child(2n) {margin-right: 0;}
+  .board_box li:nth-child(3n) {margin-right: 20px;}
+  .board_box li:nth-child(3) {margin-top: 20px;}
+}
+
+@media screen and (max-width:765px) {
+  /* 게시판 */
+  .row2 div {width: auto;}
+
+  .p-table.simple.pro_table {display: none;}
+
+  .m_board_list {display: block; border-top: 2px solid #000;}
+  .m_board_list > li {width: 100%;}
+  .m_board_list > li a {display: block; padding: 15px 0; border-bottom: 1px solid #ddd; text-decoration: none;}
+  .m_board_list > li li {position: relative; padding: 7px 10px; font-size: 15px; line-height: 1em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+  .m_board_list > li li::before {display: block; position: absolute; top: 15px; left: 0; width: 3px; height: 3px; background: #686868; border-radius: 50%;}
+  .m_tit {display: inline-block; width: 90px; font-family: "Noto Sans KR"; font-size: 15px; font-weight: 500; color: #000;}
+}
+
+@media screen and (max-width:640px) {
+  /* 게시판 */
+  .town_slide {position: relative; padding: 19px 57px; margin-bottom: 45px; border-radius: 0;}
+  .town_slide .slick-arrow {top: 50%; width: 34px; height: 34px; margin-top: -17px;}
+  .town_slide .slick-arrow.slick-prev {left: 6px; background-position: left 9px center;}
+  .town_slide .slick-arrow.slick-next {right: 6px; background-position: right 9px center;}
+  .town_slide a {font-size: 16px;}
+
+  .board_box li {float: none; width: 100%; margin-top: 15px; margin-right: 0;}
+  .board_box li:nth-child(2n) {margin-right: 0;}
+  .board_box li:nth-child(2), .board_box li:nth-child(3) {margin-top: 15px;}
+  .board_box li a {padding: 20px;}
+  .board_box li a > span {font-size: 14px;}
+  .board_box dt {height: 42px; font-size: 18px;}
+  .board_box dd em {font-size: 15px; line-height: 1.8em;}
+  .board_box dd span {font-size: 15px;}
+
+  /* 이미지 변환 */
+  .m_img {display: block;}
+  .pc_img {display: none;}
+}
+
+/* 행정복지센터 오시는 길 지도 스타일 삭제 (지도 하단 버스, 주변역) */
+.root_daum_roughmap .cont {display: none;}

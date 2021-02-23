@@ -1,0 +1,8 @@
+/* 한신정보기술 송정은 191120 */
+.temp_number_box .box_wrap {position:relative; padding-left:226px; background-color:#fcfcfc;}
+.temp_number_box .box_wrap:before {display:inline-block; position: absolute; top:29px; left:29px; width:157px; height:114px; background:url('/site/danwongu/images/contents/number_box_icon.jpg') no-repeat 0 0}
+
+@media screen and (max-width:640px) {
+    .temp_number_box .box_wrap {padding-left:20px; padding-top:170px;}
+    .temp_number_box .box_wrap:before {left:calc(50% - 78px)}
+}

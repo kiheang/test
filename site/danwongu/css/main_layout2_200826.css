@@ -1,0 +1,298 @@
+@charset "UTF-8";
+
+/** 200826 추가 **/
+
+/* 백그라운드 이미지 */
+#container {overflow:hidden; position: relative; min-height:600px; background:#fff url(../images/main/main_bg.png) no-repeat center 0;}
+
+/* 상단 텍스트 */
+#container .title_top {padding:87px 22% 34px 0; text-align:center;}
+
+/* 비주얼 */
+.visual{width:765px;}
+.visual .slick-slider .slick-list {padding-bottom: 10px;}
+
+.visual .visual_control{position:absolute; bottom:10px; right:11px; z-index:54; font-size:0;}
+.visual .visual_control .control_box{display:inline-block;}
+.visual .visual_control .control_box .slick-arrow{margin-right: 2px; padding:15px 19px; background: rgba(0,0,0,0.5); color:transparent; font-size:0; line-height:0;}
+.visual .visual_control .control_box .slick-arrow:before{display:inline-block; width:10px; height:18px; background:url('../images/main/visual_prev1.png') no-repeat center; background-size: 100%; vertical-align:top; content:'';}
+.visual .visual_control .control_box .slick-arrow.next:before{background:url('../images/main/visual_next1.png') no-repeat center; background-size: 100%; }
+.visual .visual_control .control_box .slick-arrow.slick-pause:before{width: 10px; background:url('../images/main/visual_pause1.png') no-repeat center; background-size: 100%; }
+.visual .visual_control .control_box .slick-arrow.slick-play:before{width: 10px; background:url('../images/main/visual_play1.png') no-repeat center; background-size: 115%; }
+.visual .visual_control .count_box{display:inline-block; padding: 16px 30px; color: #d2c4bd; font-weight: 300; font-size:20px; line-height:18px; vertical-align:middle; background: rgba(0,0,0,0.5); font-family: "Roboto";}
+.visual .visual_control .count_box .current{line-height:18px; color: #fff; font-weight: 400;}
+.visual .slide_box .cont_box .info_box .cont_title {position:relative; margin-bottom:49px; padding-bottom:28px; font-size:30px; line-height:40px;}
+.visual .slide_box .cont_box .info_box .cont_title:before {display:inline-block; position:absolute; bottom:0; left:0; width:17px; height:2px; background-color:#fff;}
+.visual .slide_box .cont_box .info_box p {font-size:18px; line-height:30px; word-break:keep-all}
+.visual .img_box img {box-shadow: 0px 10px 10px rgba(0,0,0,0.3);}
+
+/* 단원구청장 */
+.chief {overflow: hidden; float: right; position:relative; width: 415px; height: 370px; padding: 38px 45px; margin-bottom: 20px; box-sizing:border-box; background: url(../images/main/chief_bg.jpg) no-repeat;}
+.chief:after{display:block; position:absolute; bottom:-47px; right:-6px; width:236px; height:322px; background:url('../images/main/chief_img.png') no-repeat 0 100%;}
+
+.chief .title_text b {display: inline-block; position: relative; margin-bottom: 20px; padding-top: 10px; font-family: "Noto Sans KR"; font-size: 26px; font-weight: 700; color: #093c88;}
+.chief .title_text b span {position: relative;}
+.chief .title_text b em {display: inline-block; font-family: "Noto Sans KR"; font-size: 26px; font-weight: 700; color: #093c88; font-style: italic;}
+.chief .title_text > em {display: block; margin-bottom: 23px; font-family: "Noto Sans KR"; font-size: 16px; color: #555; line-height: 22px;}
+.chief .title_text > em span {display: block;}
+.chief .title_text strong {display: block; margin-bottom: 10px; font-family: "Noto Sans KR"; font-size: 18px; font-weight: 500; color: #333;}
+.chief a {display: block; position:relative; width:70px; height:70px; margin-top: 30px; padding-top:16px; border-radius:100%; box-sizing: border-box; background-color:#f8334a; text-align:center; z-index:2}
+.chief a:before {display:inline-block; position:absolute; bottom:21px; left:50%; width:70px; height:10px; background:url('../images/main/arrow1.png') no-repeat;}
+.chief a em {font-family: "Noto Sans KR"; font-size:14px; color:#fff;}
+.chief a:hover {text-decoration:none;}
+
+/* 팝업존 */
+.popup, .board {height: 320px; margin: 125px 0 35px;}
+
+.popup h2 {margin-bottom: 30px; font-family: "Noto Sans KR"; font-size: 23px; color: #222; font-weight: 500;}
+.popup {float:left; overflow:hidden; position:relative; width:300px; height:315px; padding-top: 5px;}
+.popup .popup_control {display:inline-block; position:absolute; top:0; right:0; width:100%; z-index:11; box-sizing:border-box}
+.popup .popup_control .count_box {float:right; display:inline-block; padding:10px 121px 10px 0; vertical-align:middle; font-weight: 300; font-size:20px; line-height:20px; color:#666; font-family: "Roboto";}
+.popup .popup_control .count_box .current {color: #ff9000; font-weight: 400;}
+.popup .popup_control .control_box {float:right; display:inline-block;}
+.popup .popup_control button {position:absolute; bottom:5px; right:72px; display:inline-block; width:34px; height:34px; border:1px solid #c0c2cb; background:#fff url('../images/main/popup_prev1.png') no-repeat center; font-size:0; line-height:0;}
+.popup .popup_control button.auto {right:36px;}
+.popup .popup_control button.slick-pause {background:#fff url('../images/main/popup_pause1.png') no-repeat center;}
+.popup .popup_control button.slick-play {background:#fff url('../images/main/popup_play1.png') no-repeat center;}
+.popup .popup_control button.next {right: 0; background:#fff url('../images/main/popup_next1.png') no-repeat center;}
+.popup .slide_box{position:relative;}
+.popup .slide_box .slick-slide{float:left;}
+.popup .slick-slider .slick-list {padding: 0;}
+
+/* 부서/업무 검색 */
+.content_search{float: left; width: 275px; height: 320px; margin: 125px 40px 35px;}
+.content_search .search_box {padding: 30px 30px 31px; background: url(../images/main/search_bg1.jpg) no-repeat; background-size: 100%; box-sizing:border-box;}
+.content_search .search_box.task {background: url(../images/main/search_bg2.jpg) no-repeat; background-size: 100%;}
+.content_search .search_box h3 {margin-bottom: 30px; font-family: "Noto Sans KR"; font-size:22px; font-weight: 300; color:#fff;}
+.content_search .search_box .search_area {position:relative;}
+.content_search .search_box .search_area input.content_search_text {width:100%; height: 43px; padding: 14px 25px 14px 10px; background-color:transparent; border:none; border-bottom:1px solid rgba(255,255,255,0.4); color:rgba(255,255,255,0.7); font-size:16px;}
+.content_search .search_box .search_area input::-webkit-input-placeholder {color:rgba(255,255,255,0.4)}
+.content_search .search_box .content_search_submit {position:absolute; top:7px; right:5px; width:22px; height:22px; background:url('../images/main/search1.png') no-repeat; font-size: 0; line-height: 0;}
+
+/* 게시판 */
+.board {overflow: initial; float: left; width: 540px; position:relative;}
+.board .tab_list {position: relative; padding-bottom: 20px; border-bottom: 1px solid #dedfe3;}
+.board .tab1 {margin:0 43px 0 0;}
+.board .tab1 > li {float:left; text-align: center;}
+.board .tab1 li:last-child::after {display: none;}
+.board .tab1 > li > a {display:block; position:relative; margin: 0 20px; padding-bottom: 5px; font-size: 19px; color: #888; text-decoration: none; font-family: "Noto Sans KR"; text-align: left;}
+.board .tab1 > li:first-child > a {margin-left: 0;}
+.board .tab1 > li.board_file > a {margin-right: 40px;}
+.board .tab1 > li.active > a {border-bottom: 3px solid #014bbb; color: #014bbb;}
+.board .tab1 > li.active > a::before {display: block; position: absolute; top: -3px; left: -7px; width: 6px; height: 6px; background: #014bbb; border-radius: 50%;}
+.board .tab1 > li > a::after {display: block; position: absolute; top: 50%; right: -20px; width: 1px; height: 15px; margin-top: -6px; background: #d9d9d9; transform: rotate(15deg);}
+.board .tab1 .board_file > a::after {right: -45px;}
+.board .tab1 .board_file:last-child > a::after {display: none;}
+.board .tab1 > li > a span {display: block; position: relative; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+.board .tab1 .board_file > a span::after {display: block; position: absolute; top: 50%; right: -20px; width: 14px; height: 14px; margin-top: -6px; background: url(../images/main/board_file1.png) no-repeat; transform: none;}
+.board .tab1 .board_file.active > a span::after {background: url(../images/main/board_file2.png) no-repeat;}
+
+.board .tab1 > li.active > .tab2 {display: block;}
+.board .tab2 {display: none; position: absolute; top: 52px; left: 0; width: 100%; text-align: left;}
+.board .tab2 ul li {display: block; position: relative; border-bottom: 1px solid #dedfe3;}
+.board .tab2 ul li a {overflow: hidden; display: block; position: relative; padding: 10px 95px 10px 24px; font-family: "Noto Sans KR"; font-size: 16px; color: #222; white-space: nowrap; text-overflow: ellipsis;}
+.board .tab2 ul li a::before {display: block; position: absolute; top: 50%; left: 10px; width: 4px; height: 4px; background: #555; border-radius: 50%;}
+.board .tab2 .time {display: block; position: absolute; top: 13px; right: 0; width: 86px; font-family: "Roboto"; font-size: 16px; color: #888;}
+.board .tab2 ul li:first-child {padding: 24px 60px 27px 104px;}
+.board .tab2 ul li:first-child a {padding: 0;}
+.board .tab2 ul li:first-child a::before {display: none;}
+.board .tab2 ul li:first-child a p {display: -webkit-box; overflow: hidden; height: 45px; word-break: keep-all; white-space: normal; text-overflow: ellipsis; -webkit-line-clamp: 2; -webkit-box-orient: vertical; font-family: "Noto Sans KR"; font-size: 15px; color: #555;}
+.board .tab2 ul li a em {overflow: hidden; display: block; margin-bottom: 12px; font-family: "Noto Sans KR"; font-size: 19px; color: #222; text-overflow: ellipsis; white-space: nowrap;}
+.board .tab2 ul li:first-child .time {box-sizing: border-box; position: absolute; top: 24px; left: 0; padding: 18px 14px; border: 2px solid #e1e1e1; font-size: 13px; color: #777; text-align: center; line-height: 1.4em; font-weight: 300;}
+.board .tab2 ul li:first-child .time::before {display: block; position: absolute; top: -2px; left: -2px; width: 0; height: 0; border-bottom: 13px solid transparent; border-left: 13px solid #2967c4;}
+.board .tab2 ul li:first-child .day {display: block; font-family: "Roboto"; font-size: 24px; color: #2967c4; line-height: 1em; font-weight: 500;}
+.board .tab2 .more {display: block; position: absolute; top: -57px; right: 0; width: 33px; height: 33px; border: 1px solid #c0c2cb; background: url(../images/main/plus1.png) no-repeat center; font-size: 0; line-height: 0;}
+
+
+/********* respond *********/
+@media all and (max-width:1300px) {
+    .conBox {box-sizing: border-box; width: 100%; padding: 0 50px;}
+
+    /* 비주얼 */
+    .visual {width: 100%; margin-bottom: 30px; box-shadow: 5px 10px 10px rgba(0,0,0,0.3);}
+    .visual .visual_control {bottom: 0; right: 0;}
+    .visual .slick-slider .slick-list {padding: 0;}
+    .visual .img_box img {width: 100%; box-shadow: none;}
+
+    /* 단원구청장 */
+    .chief {float: left; height: 320px; padding: 35px 45px; margin: 0;}
+    .chief .title_text b {padding-top: 0; margin-bottom: 15px;}
+    .chief .title_text > em {margin-bottom: 13px;}
+    .chief .title_text strong {margin-bottom: 7px;}
+    .chief a {margin: 0;}
+
+    /* 팝업 */
+    .popup {margin: 0 30px;}
+
+    /* 검색 */
+    .content_search {width: calc(100% - 775px); margin: 0;}
+
+    /* 게시판 */
+    .board {width: 100%; margin: 0; margin-top: 30px;}
+    .board .tab1 > li {width: calc(25% - 35px);}
+}
+
+@media all and (max-width:1200px) {
+    #container {background-size: 100%;}
+    #container .title_top {padding: 60px 0 30px;}
+
+    /* 단원구청장 */
+    .chief {width: calc(100% - 330px); background-size: 100%; background-position: center;}
+
+    /* 팝업 */
+    .popup {margin-right: 0;}
+    
+    /* 부서/업무 검색 */
+    .content_search {width: 300px; margin: 30px 30px 0 0;}
+
+    /* 게시판 */
+    .board {width: calc(100% - 330px);}
+    .board .tab1 > li {width: 25%;}
+}
+
+@media all and (max-width:1000px) {
+    #container .wrap.conBox {padding: 0 20px;}
+    
+    /* 비주얼 */
+    .visual {margin-bottom: 15px;}
+
+    /* 단원구청장 */
+    .chief {width: calc(100% - 315px);}
+    
+    /* 팝업 */
+    .popup {margin: 0; margin-left: 15px;}
+
+    /* 부서/업무 검색 */
+    .content_search {width: 270px; margin: 30px 15px 0 0;}
+    .board .tab2 ul li:first-child {padding: 22px 60px 25px 104px;}
+
+    /* 게시판 */
+    .board {width: calc(100% - 285px);}
+}
+
+@media all and (max-width:800px) {
+    #container {background: #fff url(../images/main/m_main_bg.jpg) no-repeat top center; background-size: 100%;}
+    #container .wrap.conBox {padding: 0;}
+
+    /* 상단 텍스트 */
+    #container .title_top {padding: 30px 20px 15px;}
+
+    /* 비주얼 */
+    .visual {box-sizing: border-box; position: absolute; top: 157px; z-index: 100; padding: 0 20px 20px; box-shadow: none;}
+    .visual::after {display: block; position: absolute; bottom: 20px; right: 20px; width: calc(100% - 40px); height: calc(100% - 40px); box-shadow: 5px 10px 10px rgba(0,0,0,0.3);}
+    .visual .visual_control {right: 20px; bottom: 20px;}
+
+    /* 단원구청장 */
+    .chief {width: 100%; height: auto; margin: 250px 0 15px; padding: 140px 20px 20px;}
+
+    /* 팝업 */
+    .popup {margin: 0 15px 0 20px;}
+
+    /* 부서/업무 검색 */
+    .content_search {width: calc(100% - 355px); margin: 0; margin-right: 20px; box-sizing: border-box;}
+
+    /* 게시판 */
+    .board {clear: both; width: 100%; height: auto; margin: 0; padding: 15px 20px 0; box-sizing: border-box;}
+    .board .tab_list {padding: 0; border: none;}
+    .board .tab1 {margin: 0;}
+    .board .tab1 > li {width: 100%; padding: 0; margin-bottom: 7px; text-align: left;}
+    .board .tab1 > li:first-child {padding: 0;}
+    .board .tab1 > li:last-child {margin: 0;}
+    .board .tab1 > li.board_file {padding: 0;}
+    .board .tab1 > li::after {display: none;}
+    .board .tab1 > li > a {position: relative; margin: 0; padding: 12px 16px; font-size: 15px; color: #555; border: 1px solid #d6d8df;}
+    .board .tab1 > li.active > a {background: #014bbb url(../images/main/m_board_bg.jpg) no-repeat right; background-size: 60%; border-bottom: 1px solid transparent; color: #fff;}
+    .board .tab1 > li > a::after {display: block; position: absolute; top: 50%; right: 8px; width: 25px; height: 25px; margin-top: -12px; background: url(../images/main/arrow_down1.png) no-repeat center; background-size: 100%; transform: none;}
+    .board .tab1 > li.active > a::after {background: url(../images/main/arrow_up1.png) no-repeat center; background-size: 25px;}
+    .board .tab1 .board_file > a::after {display: none;}
+    .board .tab1 .board_file.active > a::after {background: url(../images/main/board_file3.png) no-repeat center; background-size: 15px;}
+    .board .tab1 > li.active > a::before {display: none;}
+    .board .tab1 > li.board_file > a {margin: 0;}
+    .board .tab1 .board_file > a span::after {right: 0;}
+
+    .board .tab2 {width: 100%; position: static; padding-bottom: 20px; background-color: #e9eef2;}
+    .board .tab2 ul {margin-bottom: 10px;}
+    .board .tab2 ul li {border: 0;}
+    .board .tab2 ul li:first-child {padding: 19px 60px 23px 104px;}
+    .board .tab2 ul li a {max-width: 318px; padding: 10px 95px 10px 24px; font-size: 13px;}
+    .board .tab2 ul li a::before {left: 17px;}
+    .board .tab2 ul li a span {font-size: 14px;}
+    .board .tab2 ul li a em {margin-bottom: 10px; font-size: 14px;}
+    .board .tab2 ul li:first-child a p {height: 30px; font-size: 12px; line-height: 1.4em;}
+    .board .tab2 .time {width: auto; top: 1px; right: 15px; font-size: 13px;}
+    .board .tab2 ul li:first-child .time {top: 20px; left: 17px; width: 67px; padding: 13px 5px; background: #fff; border: 0; font-size: 10px;}
+    .board .tab2 ul li:first-child .day {font-size: 18px;}
+    .board .tab2 .more {position: relative; top: auto; bottom: 0; width: 90px; margin: 0 auto; text-align: center; background: #fff url(../images/main/plus2.png) no-repeat right 15px center; background-size: 10px; border: 0; border-radius: 45px;}
+    .board .tab2 .more::after {content:"더보기"; display: block; position: absolute; top: 50%; left: 50%; margin-left: -22px; font-family: "Noto Sans KR"; font-size: 13px; color: #555;}
+}
+
+@media all and (max-width:740px) {
+    /* 단원구청장 */
+    .chief {margin-top: 200px; padding-top: 160px;}
+}
+
+@media all and (max-width:640px) {
+    /* 단원구청장 */
+    .chief {margin-top: 140px;}
+
+    /* 팝업 */
+    .popup {float: none; width: 100%; height: auto; padding-top: 0; padding: 0 20px 15px; margin: 0; text-align: center; box-sizing: border-box;}
+    .popup .slide_box {width: 100%; border: 0;}
+    .popup .slick-slider .slick-list .slick-track .slick-slide img {width: 100%;}
+    .popup .popup_control {right: 20px;}
+    .popup h2 {text-align: left;}
+
+    /* 부서/업무 검색 */
+    .content_search {width: 100%; height: auto; padding: 0 20px;}
+    .content_search .search_box {float: none; width: 100%; padding: 15px; background: url(../images/main/m_search_bg1.jpg) no-repeat center; background-size: 100%;}
+    .content_search .search_box.task {background: url(../images/main/m_search_bg2.jpg) no-repeat center; background-size: 100%;}
+    .content_search .search_box h3 {margin: 0; font-size: 17px;}
+    .content_search .search_box .search_area input.content_search_text {font-size: 14px;}
+    .content_search .search_box .content_search_submit {top: 10px;}
+
+    /* 퀵메뉴 */
+    .quick {margin-top: 15px;}
+}
+
+@media all and (max-width:500px) {
+    /* 비주얼 */
+    .visual {top: 132px;}
+    .visual .control_box button {width: 37px; height: 37px; padding: 0;}
+    .visual .visual_control .control_box .slick-arrow {padding: 0;}
+    .visual .visual_control .count_box {padding: 10px 34px; font-size: 15px;}
+
+    /* 단원구청장 */
+    .chief {margin-top: 80px;}
+    .chief:after {bottom: -30px; right: -119px; background-size: 50%;}
+    .chief .title_text b {font-size: 19px; line-height: 1em;}
+    .chief .title_text b em {font-size: 19px;}
+    .chief .title_text > em {font-size: 12px;}
+    .chief .title_text > em span {display: inline-block;}
+    .chief .title_text strong {padding-left: 42%; font-size: 10px; line-height: 1em;}
+    .chief img {padding-left: 42%; width: 20%;}
+    .chief a {position: absolute; bottom: 25px; width: 50px; height: 50px; margin: 0; padding-top: 10px; font-size: 10px;}
+    .chief a:before {bottom: 15px; width: 50px; background-size: 100%;}
+    .chief a em {font-size: 10px;}
+}
+
+@media all and (max-width:480px) {
+    /* 팝업존 */
+    .popup h2 {margin-bottom: 17px; font-size: 17px;}
+    .popup .popup_control button {right: 55px; width: 25px; height: 25px; background-size: 7px;}
+    .popup .popup_control button.next {background-size: 7px;}
+    .popup .popup_control button.slick-pause {background-size: 6px;}
+    .popup .popup_control button.slick-play {background-size: 8px;}
+    .popup .popup_control button.auto {right: 27px;}
+    .popup .popup_control .count_box {padding: 10px 90px 10px 0; font-size: 15px; line-height: 15px;}
+}
+
+@media all and (max-width:400px) {
+    /* 비주얼 */
+    .visual {top: 105px;}
+
+    /* 단원구청장 */
+    .chief {padding-top: 90px;}
+
+    /* 부서, 업무명 검색 */
+    .content_search .search_box, .content_search .search_box.task {background-size: 105%;}
+}

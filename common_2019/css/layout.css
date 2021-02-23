@@ -1,0 +1,57 @@
+
+a:link { color:#636363; text-decoration:none; }
+a:visited { color:#636363; text-decoration:none; }
+a:hover { color:#636363; text-decoration:underline; }
+a:active { color:#636363; text-decoration:underline; }
+
+/* 본문바로가기  */
+.accessibility {overflow:hidden;position:relative;z-index:1000;width:100%;}
+.accessibility a{display:block;overflow:hidden;height:1px;width:1px;margin:0 -1px -1px 0;font-size:0;line-height:0;text-align:center}
+.accessibility a:focus, #accessibility a:hover, #accessibility a:active {width:auto;height:20px;margin:0;padding:8px 0 0 15px;background:#20262c;font-size:12px;font-weight:700;line-height:1;color:#fff;}
+
+/* responsive */
+#scrollbar {visibility:hidden; overflow:scroll; position:absolute; top:-100px; left:-100px; z-index:-1; width:100px; height:100px;}
+
+/* 입력 form */
+input{height:24px;margin:1px;padding:1px 3px;border:solid 1px #dedede;line-height:24px; }
+input[type="submit"]{height:40px;line-height:24px;}
+input[type="radio"],input[type="checkbox"]{width:14px;height:14px;}
+input[type="image"]{height:auto;margin:0;padding:0;border:none;}
+/*button{height:28px;padding:1px 3px;}
+select{height:28px; padding:1px 0 1px 3px; border:solid 1px #dedede; background-color:#fff; line-height:24px;}
+textarea{min-height:80px; padding:1px 3px; border:solid 1px #dedede; line-height:25px;}*/
+
+
+/* 만족도조사 및 담당자 정보 */
+.satisfaction {margin:30px 0 70px;padding:0;border:1px solid #d5d5d5;}
+.satisfaction .kogl_open {padding:17px 3% 16px; color:#000}
+.satisfaction .kogl_open img {margin-right:39px;}
+.satisfaction .manager_info{position:relative;padding:0 3%;background:#f4f5f9}
+.satisfaction .manager_info ul{padding:13px 0 7px;}
+.satisfaction .manager_info ul li{float:left;margin-left:69px;padding-left:10px; color:#5b5b5b}
+.satisfaction .manager_info ul li:first-child{margin-left:0;padding-left:0;}
+.satisfaction .manager_info ul li span{display:inline-block; margin-right:8px; color:#000;}
+.satisfaction .manager_info ul li span:after{content: ""; display:inline-block; width:1px; height:14px; margin-top:5px; margin-left:10px;background:#aaabae;vertical-align: top}
+.satisfaction .satisfaction_list {padding:15px 3%;border-top:1px solid #e1e1e1}
+.satisfaction .question{margin-bottom:5px}
+.satisfaction .satisfaction_list label{vertical-align:middle;}
+.satisfaction .satisfaction_list .input_radio{display:block;}
+.satisfaction .satisfaction_list label{display:inline-block;margin-right:20px;}
+.satisfaction .satisfaction_list .opinion {display:block;margin-top:10px}
+.satisfaction .satisfaction_list .opinion input[type="text"]{width:71%;border:1px solid #e1e1e1;border-right:none;}
+.satisfaction .satisfaction_list .opinion input[type="submit"]{width:20%;border:1px solid #757575;background-color:#757575;color:#fff;}
+
+@media all and (max-width:640px) {
+    .satisfaction {margin:30px 0 0;}	
+	.satisfaction .kogl_open img {display:inline-block; margin-right:7%; max-width:97px; vertical-align:middle;}
+	.satisfaction .kogl_open span {display:inline-block; width:calc(93% - 101px); vertical-align:middle;}
+    .satisfaction .manager_info h3{display:inline-block;left:2%;float:none;padding:0 5px;border-right:none;}
+	.satisfaction .manager_info ul {}
+	.satisfaction .manager_info ul li {float:left; position:relative; width:50%; margin:0; padding:0; text-align:center;}
+	.satisfaction .manager_info ul li:first-child:after{content: ""; display:inline-block; position:absolute; top:5px; right:0; width:1px; height:14px; background:#aaabae;}
+	.satisfaction .manager_info ul li span {display:none;}
+    .satisfaction .satisfaction_list .input_radio,.satisfaction .satisfaction_list .opinion{float:none;width:100%;margin:0 0 5px 0;}
+    .satisfaction .satisfaction_list .opinion input[type="text"]{width:65%;}
+    .satisfaction .satisfaction_list .opinion input[type="submit"]{width:30%;}
+
+}

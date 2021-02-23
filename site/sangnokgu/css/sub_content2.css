@@ -1,0 +1,271 @@
+/* (주)한신정보기술 김지원 191118 */
+
+/* 아코디언 공통 */
+.temp_accordion {margin-bottom:20px;border-top:1px solid #777;}
+.temp_accordion .accordion_list .cont_box {border-bottom:1px solid #777}
+.temp_accordion .accordion_list .cont_box > a {display:block;position:relative;min-height:30px;margin:0;padding:14px 47px 13px 46px;font-weight:bold;border-bottom:0;}
+.temp_accordion .accordion_list .cont_box > a:before {display:block;position:absolute;top:0;left:0;width:40px;height:40px;background:url('/site/danwongu/images/contents/bul_accordion.gif')no-repeat 0 0;}
+.temp_accordion .accordion_list .cont_box > a:after {display:block;position:absolute;top:20px;right:13px;width:15px;height:8px;background:url('/site/danwongu/images/contents/bul_accordion_arrow.gif') no-repeat;cursor:pointer;}
+.temp_accordion .accordion_list .cont_box.active > a:after {background:url('/site/danwongu/images/contents/bul_accordion_arrow.gif')no-repeat 0 0;background-position:0 -8px;}
+.temp_accordion .accordion_list .cont_box > a span {font-size:16px;}
+.temp_accordion .accordion_list .cont_box .txt {display:none;padding:15px 30px 15px 46px;border-top:1px solid #fb7c00;background:url('/site/danwongu/images/contents/bul_accordion.gif') #fefaf1 no-repeat 0 -55px;}
+
+/* 생활정보 > 건설교통 > 주차장안내 */
+.cts1532 .border_box .box_wrap, .cts1533 .border_box .box_wrap {position:relative; padding-left:191px; background-color:#fcfcfc;}
+.cts1532 .border_box .box_wrap:before, .cts1533 .border_box .box_wrap:before{display:block; position:absolute; top:50%; left:20px; width:151px; height:106px; margin-top:-53px; background:url('/site/sangnokgu/images/contents/cts1533_box_icon.png') center top no-repeat;}
+@media all and (max-width:640px) {
+    .cts1532 .border_box .box_wrap:before, .cts1533 .border_box .box_wrap:before {display:none;}
+    .cts1532 .border_box .box_wrap, .cts1533 .border_box .box_wrap {padding:3%;}
+}
+
+/* 생활정보 > 문화/체육 > 시립도서관 */
+.cts1528_1529_box {margin-top:20px; padding:30px 35px; border-bottom:1px solid #ccc; background:url('/site/sangnokgu/images/contents/bg_note_layout.gif') no-repeat left top / cover;}
+.cts1528_1529_box .ribbon_title {margin-bottom:15px; margin-left:-35px; padding-left:45px; font-size:16px; color:#fff; background:url(/site/sangnokgu/images/contents/tit_h5_note_layout.png) no-repeat;}
+@media all and (max-width:640px) {
+    .cts1528_1529_box {padding:20px 3%;}
+    .cts1528_1529_box .ribbon_title {margin-left:-3%;}
+}
+
+/* 생활정보 > 환경/위생 > 공중위생관리법 위반업소 & 식품위생법 위반업소 */
+.cts1526_1524_box .box_wrap {position:relative; padding-left:218px; background-color:#fcfcfc;}
+.cts1526_1524_box .box_wrap:before {display:block; position:absolute; top:50%; left:20px; width:158px; height:180px; margin-top:-90px; background:url('/site/sangnokgu/images/contents/bg_contents_0503.jpg') center top no-repeat;}
+@media all and (max-width:640px) {
+    .cts1526_1524_box .box_wrap:before {display:none;}
+    .cts1526_1524_box .box_wrap {padding:3%;}
+}
+
+/* 생활정보 > 환경/위생 > 식품위생업소 자율점검 */
+.cts1525_box {margin:20px 0; padding:15px; border:1px solid #cdcdcd; background-color:#fafafa;}
+.cts1525_box h4 {padding-left:20px; }
+.cts1525_box h4:before {display:block; top:7px; left:0; width:20px; height:20px; background:url('/site/sangnokgu/images/contents/tit_h5_contents_03005021_check.png') no-repeat;}
+.cts1525_btn_cts {margin-top:50px; padding-top:20px; border-top:1px solid #ccc; text-align:center;}
+.cts1525_btn_cts li {display:inline-block;}
+.cts1525_btn_cts li:nth-child(2) {margin-left:5px;}
+
+/* 생활정보 > 환경/위생 > 상록구음식거리 */
+.cts1520_box {padding-right:50px; border:1px solid #ccc;}
+.cts1520_box .list {position:relative; padding:32px 0 32px 250px;border-bottom:1px dashed #dadada;}
+.cts1520_box .list:last-child {border-bottom:none;}
+.cts1520_box .list h4 {font-weight:600;}
+.cts1520_box .list .btn {margin-top:20px;}
+.cts1520_box .list .img_cts {position:absolute; top:50%; left:30px; margin-top:-65px;}
+@media all and (max-width:640px) {
+    .cts1520_box .list {padding-left:190px;}
+    .cts1520_box .list .img_cts {left:3%; width:150px; margin-top:-49px;}
+}
+@media all and (max-width:480px) {
+    .cts1520_box .list {padding:20px 3%;}
+    .cts1520_box .list .img_cts {display:block; position:static; width:100%; margin-top:0; margin-bottom:10px;}
+    .cts1520_box .list .btn {margin-top:10px;}
+}
+
+/* 참여소통 > 신고센터 */
+.cts1511_box {position:relative; margin-top:10px; padding:32px 0 32px 250px;border:1px solid #ccc;}
+.cts1511_box h5 {font-weight:600;}
+.cts1511_box .btn {margin-top:20px;}
+.cts1511_box .img_cts {position:absolute; top:50%; left:30px; margin-top:-65px;}
+@media all and (max-width:640px) {
+    .cts1511_box {padding-left:190px;}
+    .cts1511_box .img_cts {left:3%; width:150px; margin-top:-49px;}
+}
+@media all and (max-width:480px) {
+    .cts1511_box {padding:20px 3%;}
+    .cts1511_box .img_cts {display:block; position:static; width:100%; margin-top:0; margin-bottom:10px;}
+    .cts1511_box .btn {margin-top:10px;}
+}
+
+/* 민원창구 > 세무민원 */
+.cts1490_list li {float:left; width:33.33%; text-align:center;}
+.cts1490_list li a {display:block; padding:0 10px;}
+.cts1490_list li a img {display:block; margin:0 auto 15px;}
+.cts1490_list li a span {font-weight:600;}
+@media all and (max-width:640px) {
+    .cts1490_list li {float:none; width:100%; margin-bottom:20px;}
+    .cts1490_list li a {padding:0;}
+}
+
+/* 부서행정 > 경제교통과 > 민영노외주차장 설치/폐지 통보안내 */
+.cts1467_box {padding:10px; border:1px solid #cdcdcd; background-color:#fafafa;}
+
+/* 부서행정 > 경제교통과 > 주정차위반안내 > 과태료부과 */
+.cts1463_btn .btn:nth-child(2) {margin-left:5px;}
+@media all and (max-width:640px) {
+    .cts1463_btn .btn {display:block;}
+    .cts1463_btn .btn:nth-child(2) {margin-top:10px; margin-left:0;}
+}
+
+/* 부서행정 > 건설행정과 > 도로조명관리 */
+.cts1450_box {padding:10px; border:1px solid #cdcdcd; background-color:#fafafa;}
+
+/* 부서행정 > 환경위생과 > 위생업소 지원 및 영업지수 */
+.cts1431_img_list {margin:20px 0;}
+.cts1431_img_list .box_img {float:left; width:50%;}
+.cts1431_box {padding:10px; border:1px solid #cdcdcd; background-color:#fafafa;}
+@media all and (max-width:640px) {
+    .cts1431_img_list .box_img {float:none; width:100%;}
+    .cts1431_img_list .box_img:nth-child(2) {margin-top:15px;}
+}
+
+/* 부서행정 > 주민복지과 > 복지상담실안내 */
+.cts1405_box .box_wrap {position:relative; padding-left:142px; background-color:#fcfcfc;}
+.cts1405_box .box_wrap:before {display:block; position:absolute; top:50%; left:20px; width:102px; height:71px; margin-top:-36px; background:url('/site/sangnokgu/images/contents/bg_page_description_0213.jpg') center top no-repeat;}
+.cts1405_list {margin-top:20px; padding:20px 27% 13% 15px; border:1px solid #ccc; background:url('/site/sangnokgu/images/contents/img_contents_0213.jpg') no-repeat right bottom / contain;}
+.cts1405_list ul li {float:left; width:50%; padding-right:5px; box-sizing:border-box;}
+@media all and (max-width:800px) {
+    .cts1405_list {padding:20px 3% 29% 3%;}
+}
+@media all and (max-width:640px) {
+    .cts1405_box .box_wrap:before {display:none;}
+    .cts1405_box .box_wrap {padding:3%;}
+
+    .cts1405_list ul li {width:100%; padding-right:0;}
+}
+
+/* 부서행정 > 세무과 > 등록면허세 */
+.cts1393 ul.num li ul.bu li ul.num li {padding-left:20px;}
+
+/* 부서행정 > 세무과 > 인터넷납부 > 인터넷지로 */
+.cts1385_box {padding-left:230px; background:url('/site/sangnokgu/images/contents/cts1385_bg.jpg') no-repeat;}
+@media all and (max-width:640px) {
+    .cts1385_box {padding-left:0; background:none;}
+}
+
+/* 참여소통 > 칭찬합시다 */
+.cts1509_box .box_wrap {position:relative; padding-left:181px; background-color:#fcfcfc;}
+.cts1509_box .box_wrap:before {display:block; position:absolute; top:50%; left:20px; width:141px; height:79px; margin-top:-40px; background:url('/site/sangnokgu/images/contents/bg_page_description_0402.jpg') center top no-repeat;}
+@media all and (max-width:640px) {
+    .cts1509_box .box_wrap:before {display:none;}
+    .cts1509_box .box_wrap {padding:3%;}
+}
+
+/* 생활정보 > 상록트레킹 */
+.tracking_btn a:nth-child(2) {margin-left:5px;}
+@media all and (max-width:640px) {
+    .tracking_btn a {display:block;}
+    .tracking_btn a:nth-child(2) {margin-top:10px; margin-left:0;}
+}
+
+/* 상록구소개 > 조직 및 업무 */
+.cts1312 .org {border:1px solid #ddd; padding:30px;}
+.cts1312 .org .org_obj {}
+.cts1312 .org .org_obj .title {display:table;position:relative;width:133px;height:42px;padding:0 2px 2px 0;margin-bottom:18px;box-sizing:border-box;}
+.cts1312 .org .org_obj .title:before {display:block;position:absolute;left:calc(50% - 1px);bottom:-18px;width:1px;height:18px;background:#b2b2b2;}
+.cts1312 .org .org_obj .title a {display:table-cell;width:100%;height:100%;vertical-align:middle;}
+
+.cts1312 .org .org_obj.type1 .title {background:#387fd9;}
+.cts1312 .org .org_obj.type1 .title a {border:1px solid #306cba;border-radius:2px;background:linear-gradient(to bottom, #4187dd, #3277d6);color:#fff;font-weight:bold;text-align:center;}
+
+.cts1312 .org .org_obj.type2 {}
+.cts1312 .org .org_obj.type2 .title {float:left;position:relative;background:#f09911;}
+.cts1312 .org .org_obj.type2 .title a {border:1px solid #d2861a;border-radius:2px;color:#fff;font-weight:bold;text-align:center;}
+.cts1312 .org .org_obj.type2 .title:after {display:block;position:absolute;top:calc(50% - 1px);right:-13px;width:13px;height:1px;background:#b2b2b2;}
+.cts1312 .org .org_obj.type2 ul {float:left;width:calc(100% - 140px);margin-top:4px;padding-left:13px;box-sizing:border-box;}
+.cts1312 .org .org_obj.type2 ul > li {display:table;float:left;position:relative;width:86px;height:33px;margin-right:12px;text-align:center;}
+.cts1312 .org .org_obj.type2 ul > li:before {display:block;position:absolute;top:calc(50% - 1px);right:-13px;width:12px;height:1px;background:#b2b2b2;}
+.cts1312 .org .org_obj.type2 ul > li:last-child {margin-right:0;}
+.cts1312 .org .org_obj.type2 ul > li:last-child:before {display:none;}
+.cts1312 .org .org_obj.type2 ul > li span, .cts1312 .org .org_obj.type2 ul > li a {display:table-cell;width:100%;height:100%;border:1px solid #acacac;border-radius:3px;background:linear-gradient(to bottom, #fff, #ededed);color:#525252;font-weight:bold;vertical-align:middle;box-shadow:0 2px 2px #bbb;}
+.cts1312 .org .org_obj.type2:last-child .title:before {display:none;}
+
+@media screen and (max-width:1200px) {
+    .cts1312 .org .org_wrap {width:700px;margin:0 auto;}
+    .cts1312 .org .org_obj.type2 ul > li {width:85px;margin-right:7px;}
+    .cts1312 .org .org_obj.type2 ul > li:before {right:-9px;width:9px;}
+    .cts1312 .org .org_obj:nth-child(4) .title {margin-bottom:55px;}
+    .cts1312 .org .org_obj:nth-child(4) .title:before {bottom:-55px; height:55px;}
+    .cts1312 .org .org_obj:nth-child(4) > ul > li:nth-child(6) {margin-right:0;}
+    .cts1312 .org .org_obj:nth-child(4) > ul > li:nth-child(6):before {display:none;}
+    .cts1312 .org .org_obj:nth-child(4) > ul > li:nth-child(7) {margin-top:9px;}
+}
+@media screen and (max-width:780px){
+    .cts1312 .org {padding:30px 20px;}
+    .cts1312 .org .org_wrap {width:100%;text-align:center;font-size:0;}
+    .cts1312 .org .org_obj.type1 {margin-right:0;}
+    .cts1312 .org .org_obj.type1 .title {left:calc(50% - ((100% - 20px) / 6));width:calc((100% - 20px) / 3);margin-bottom:30px;}
+
+    .cts1312 .org .org_obj.type1 .title:before {bottom:-15px;height:15px;}
+    .cts1312 .org .org_obj.type1 .title a {font-size:18px;}
+    .cts1312 .org .org_obj.type2 {display:inline-block;position:relative;width:calc((100% - 20px) / 3);margin-right:10px;margin-bottom:15px;vertical-align:top;}
+    .cts1312 .org .org_obj.type2:nth-child(2):before,
+    .cts1312 .org .org_obj.type2:nth-child(3):before,
+    .cts1312 .org .org_obj.type2:nth-child(4):before {display:block;position:absolute;left:calc(50% - 1px);top:-14px;width:1px;height:14px;background:#b2b2b2;}
+    .cts1312 .org .org_obj.type2:nth-child(2):after,
+    .cts1312 .org .org_obj.type2:nth-child(4):after {display:block;position:absolute;top:-15px;width:150%;height:1px;background:#b2b2b2;}
+    .cts1312 .org .org_obj.type2:nth-child(2):after {left:calc(50% - 1px);}
+    .cts1312 .org .org_obj.type2:nth-child(4):after {right:calc(50% + 1px);}
+    .cts1312 .org .org_obj.type2:nth-child(3n + 1) {margin-right:0;}
+    .cts1312 .org .org_obj.type2 .title {display:block;width:100%;}
+    .cts1312 .org .org_obj:nth-child(4) .title {margin-bottom:18px;}
+    .cts1312 .org .org_obj:nth-child(4) > ul > li:nth-child(7) {margin-top:0;}
+    .cts1312 .org .org_obj.type2 .title:before {bottom:-9px;height:9px;}
+    .cts1312 .org .org_obj.type2 .title:after {display:none;}
+    .cts1312 .org .org_obj.type2 .title a {display:block;width:100%;border:0;font-size:16px;line-height:42px;}
+    .cts1312 .org .org_obj.type2 ul {float:none;width:100%;height:205px;margin-top:50px;padding-left:0;border:1px solid #b2b2b2;}
+    .cts1312 .org .org_obj.type2 ul > li {width:100%;height:auto;}
+    .cts1312 .org .org_obj.type2 ul > li a {padding:1px 0;border:0;background:none;font-size:15px;font-weight:normal;text-align:center;box-shadow:none;}
+    .cts1312 .org .org_obj.type2 ul > li:before {display:none;}
+}
+
+/* 상록구소개 > 조직 및 업무 > 행정복지센터추가 */
+.cts1312 .org_1 {border:1px solid #ddd; padding:30px;}
+.cts1312 .org_1 .org_obj {}
+.cts1312 .org_1 .org_obj .title {display:table;position:relative;width:170px;height:42px;padding:0 2px 2px 0;margin-bottom:18px;box-sizing:border-box;}
+.cts1312 .org_1 .org_obj .title:before {display:block;position:absolute;left:calc(50% - 1px);bottom:-18px;width:1px;height:18px;background:#b2b2b2;}
+.cts1312 .org_1 .org_obj .title a {display:table-cell;width:100%;height:100%;vertical-align:middle;}
+
+.cts1312 .org_1 .org_obj.type1 .title {background:#387fd9;}
+.cts1312 .org_1 .org_obj.type1 .title a {border:1px solid #306cba;border-radius:2px;background:linear-gradient(to bottom, #4187dd, #3277d6);color:#fff;font-weight:bold;text-align:center;}
+
+.cts1312 .org_1 .org_obj.type2 {}
+.cts1312 .org_1 .org_obj.type2 .title {float:left;position:relative;background:#f09911;}
+.cts1312 .org_1 .org_obj.type2 .title a {border:1px solid #d2861a;border-radius:2px;color:#fff;font-weight:bold;text-align:center;}
+.cts1312 .org_1 .org_obj.type2 .title:after {display:block;position:absolute;top:calc(50% - 1px);right:-13px;width:13px;height:1px;background:#b2b2b2;}
+.cts1312 .org_1 .org_obj.type2 ul {float:left;width:calc(100% - 140px);margin-top:4px;padding-left:13px;box-sizing:border-box;}
+.cts1312 .org_1 .org_obj.type2 ul > li {display:table;float:left;position:relative;width:86px;height:33px;margin-right:12px;text-align:center;}
+.cts1312 .org_1 .org_obj.type2 ul > li:before {display:block;position:absolute;top:calc(50% - 1px);right:-13px;width:12px;height:1px;background:#b2b2b2;}
+.cts1312 .org_1 .org_obj.type2 ul > li:last-child {margin-right:0;}
+.cts1312 .org_1 .org_obj.type2 ul > li:last-child:before {display:none;}
+.cts1312 .org_1 .org_obj.type2 ul > li span, .cts1312 .org .org_obj.type2 ul > li a {display:table-cell;width:100%;height:100%;border:1px solid #acacac;border-radius:3px;background:linear-gradient(to bottom, #fff, #ededed);color:#525252;font-weight:bold;vertical-align:middle;box-shadow:0 2px 2px #bbb;}
+.cts1312 .or_1g .org_obj.type2:last-child .title:before {display:none;}
+.cts1312 .mt20{margin-top:20px;}
+.cts1153 .mt30{margin-top:30px;}
+
+@media screen and (max-width:1200px) {
+    .cts1312 .org_1 .org_wrap_1 {width:700px;margin:0 auto;}
+    .cts1312 .org_1 .org_obj.type2 ul > li {width:85px;margin-right:7px;}
+    .cts1312 .org_1 .org_obj.type2 ul > li:before {right:-9px;width:9px;}
+    .cts1312 .org_1 .org_obj:nth-child(4) .title {margin-bottom:55px;}
+    .cts1312 .org_1 .org_obj:nth-child(4) .title:before {bottom:-55px; height:55px;}
+    .cts1312 .org_1 .org_obj:nth-child(4) > ul > li:nth-child(6) {margin-right:0;}
+    .cts1312 .org_1 .org_obj:nth-child(4) > ul > li:nth-child(6):before {display:none;}
+    .cts1312 .org_1 .org_obj:nth-child(4) > ul > li:nth-child(7) {margin-top:9px;}
+}
+@media screen and (max-width:780px){
+    .cts1312 .org_1 {padding:30px 20px;}
+    .cts1312 .org_1 .org_wrap_1 {width:100%;text-align:center;font-size:0;}
+    .cts1312 .org_1 .org_obj.type1 {margin-right:0;}
+    .cts1312 .org_1 .org_obj.type1 .title {left:calc(50% - ((100% - 20px) / 6));width:calc((100% - 20px) / 3);margin-bottom:30px;}
+
+    .cts1312 .org_1 .org_obj.type1 .title:before {bottom:-15px;height:15px;}
+    .cts1312 .org_1 .org_obj.type1 .title a {font-size:18px;}
+    .cts1312 .org_1 .org_obj.type2 {display:inline-block;position:relative;width:calc((100% - 20px) / 3);margin-right:10px;margin-bottom:15px;vertical-align:top;}
+    .cts1312 .org_1 .org_obj.type2:nth-child(2):before,
+    .cts1312 .org_1 .org_obj.type2:nth-child(3):before,
+    .cts1312 .org_1 .org_obj.type2:nth-child(4):before {display:block;position:absolute;left:calc(50% - 1px);top:-14px;width:1px;height:14px;background:#b2b2b2;}
+    .cts1312 .org_1 .org_obj.type2:nth-child(2):after,
+    .cts1312 .org_1 .org_obj.type2:nth-child(4):after {display:block;position:absolute;top:-15px;width:150%;height:1px;background:#b2b2b2;}
+    .cts1312 .org_1 .org_obj.type2:nth-child(2):after {left:calc(50% - 1px);}
+    .cts1312 .org_1 .org_obj.type2:nth-child(4):after {right:calc(50% + 1px);}
+    .cts1312 .org_1 .org_obj.type2:nth-child(3n + 1) {margin-right:0;}
+    .cts1312 .org_1 .org_obj.type2 .title {display:block;width:100%;}
+    .cts1312 .org_1 .org_obj:nth-child(4) .title {margin-bottom:18px;}
+    .cts1312 .org_1 .org_obj:nth-child(4) > ul > li:nth-child(7) {margin-top:0;}
+    .cts1312 .org_1 .org_obj.type2 .title:before {bottom:-9px;height:9px;}
+    .cts1312 .org_1 .org_obj.type2 .title:after {display:none;}
+    .cts1312 .org_1 .org_obj.type2 .title a {display:block;width:100%;border:0;font-size:16px;line-height:42px;}
+    .cts1312 .org_1 .org_obj.type2 ul {float:none;width:100%;height:205px;margin-top:50px;padding-left:0;border:1px solid #b2b2b2;}
+    .cts1312 .org_1 .org_obj.type2 ul > li {width:100%;height:auto;}
+    .cts1312 .org_1 .org_obj.type2 ul > li a {padding:1px 0;border:0;background:none;font-size:15px;font-weight:normal;text-align:center;box-shadow:none;}
+    .cts1312 .org_1 .org_obj.type2 ul > li:before {display:none;}
+}
+

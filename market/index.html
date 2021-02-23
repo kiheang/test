@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0, user-scalable=yes" />
+	<meta name="title" content="농수산물도매시장" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta property="og:title" content="안산시 농수산물도매시장">
+	<meta property="og:description" content="안산시 농수산물도매시장">
+	<meta property="og:image" content="../site/danwongu/images/common/logo.png">
+	<meta property="og:url" content="url">
+
+	<!-- 공통 css -->
+	<link rel="stylesheet" href="../common_2019/css/font.css" />
+	<!-- 200826 추가 --> <link rel="stylesheet" href="../common_2019/css/font2_200826.css" />
+	<link rel="stylesheet" href="../common_2019/css/vote0406.css" />
+
+	<!-- 공통 js -->
+	<script src="../common_2019/js/jquery-1.12.4.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="../common_2019/js/jquery.menu.min.js"></script>
+    <script src="../common_2019/js/jquery.easing.1.3.min.js"></script>
+    <script src="../common_2019/js/jquery.responsive.min.js"></script>
+    <script src="../common_2019/js/slick.min.custom.1.6.0.3.js"></script>
+    <script src="../common_2019/js/slick.extensions.min.js"></script>
+    <link rel="stylesheet" href="../site/market/css/main.css">
+    <script src="../common_2019/js/NeoVirtualKeyboard.min.js"></script>
+    <script src="../common_2019/js/jquery.rwdImageMaps.min.js"></script>
+	<script src="../common_2019/js/common.js"></script>
+	<!-- 200904 추가 --> <script src="../common_2019/js/common2_200904.js"></script>
+	
+    <script src="../common_2019/js/jquery.cookie.js"></script>
+	<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+
+	<!--[if lt IE 9]><script src="../common_2019/js/html5.js"></script><![endif]-->
+
+	<title>안산시 농수산물도매시장에 오신 것을 환영합니다.</title>
+	<script>
+		$(function () {
+			var _cookiePopup = $.cookie('main_popup');
+
+			if (_cookiePopup != "true") {
+
+				// 2020-03-06 기원 추가 
+				var voteDisStartDate = "202004040000";
+				var voteDisEndDate = "202004151800";
+				var now = new Date();
+
+				year = now.getFullYear();
+				month = now.getMonth() + 1;
+				if ((month + "").length < 2) {
+					month = "0" + month;   //달의 숫자가 1자리면 앞에 0을 붙임.
+				}
+				date = now.getDate();      //현재 시간 중 날짜.
+				if ((date + "").length < 2) {
+					date = "0" + date;
+				}
+				hour = now.getHours();   //현재 시간 중 시간.
+				if ((hour + "").length < 2) {
+					hour = "0" + hour;
+				}
+				minutes = now.getMinutes();   //현재 시간 중 분.
+				if ((minutes + "").length < 2) minutes = "0" + minutes;
+
+				today = year + "" + month + "" + date + "" + hour + "" + minutes; //오늘 날짜 완성.
+
+				if ((eval(today) > eval(voteDisStartDate)) && ((eval(today) < eval(voteDisEndDate)))) {
+					$("#layer0327").show();
+					$(".vote_box2").hide();
+				} else {
+					$("#layer0327").hide();
+				}
+			} else {
+				$("#layer0327").hide();
+			}
+
+			// sns공유
+			$(".np_sns_list li").click(function () {
+				var elmId = $(this).attr("id");
+
+				var url = "http://www.ansan.go.kr/danwongu/index.do";
+
+				var text = "안산시 농수산물도매시장에 오신걸 환영합니다.";
+
+				var href = "";
+
+				if (elmId == "share_popup_twitter" || elmId == "share_popup_facebook" || elmId == "share_popup_band") {
+					if (elmId == "share_popup_twitter") {
+						href = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(url);
+					} else if (elmId == "share_popup_facebook") {
+						href = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url);
+					} else if (elmId == "share_popup_band") {
+						href = "http://share.naver.com/web/shareView.nhn?url=" + encodeURIComponent(url) + "&title=" + encodeURIComponent(text);
+					}
+					window.open(href, "blogShare", "width=400, height=450, scrollbars=yes, resizable=yes");
+				}
+
+			});
+		});
+		/* 20200325 - 선거인명부 팝업 쿠키 */
+		function closewin() {
+			if ($("[name=vote_close]").prop("checked") == true) {
+				$.cookie('main_popup', 'true', { expires: 1 });	//하루짜리 쿠키 생성
+			}
+			$("#layer0327").hide();
+			$("#layer0328").hide();
+		}
+
+		function fnCheckVote() {
+			console.log("fnCheckVote01");
+
+			if ($(".search_nm").val() == '') {
+				alert("이름을 입력해주세요.");
+				$(".search_nm").focus();
+				return false;
+			}
+
+			if ($(".search_brthdy").val() == '') {
+				alert("생년월일을 입력해주세요.");
+				$(".search_brthdy").focus();
+				return false;
+			}
+
+			$.ajax({
+				url: "/danwongu/checkVoteExistStep01Ajax.do",
+				type: "post",
+				data: $("#checkForm").serialize(),
+				dataType: 'json',
+				success: function (param) {
+					console.log("fnCheckVote02");
+					var resultMap = param.resultMap;
+					var votCnt = resultMap.votCnt;
+
+					console.log(votCnt)
+					// 존재하지 않음
+					if (votCnt == 0) {
+
+						// 버튼 셋팅
+						$(".vote_box1_1").hide(); // 이름 영역
+						$(".vote_box1_2").hide(); // 주민번호 영역
+						$(".vote_box1").hide(); // 선거인 명부 조회하기
+						$(".vote_box2").show(); // 다시조회 / 이의신청 영역
+
+						var htmlstr = "<li class='vote_box3'><strong>" + $("#nm").val() + "</strong>(" + $("#brthdy").val() + ")님은 선거인명부에 등재되어 있지 않습니다."
+							+ "자세한 사항은 관할(주소지) 행정복지센터로 문의하시기 바랍니다.</li>";
+
+						$(".vote_box0").prepend(htmlstr);
+
+					} else if (votCnt == 1) { // 존재함
+
+						var voteInfoMap = resultMap.voteInfoMap;
+						/*
+						console.log(voteInfoMap.voteNi); // 투표구
+						console.log(voteInfoMap.votePlace); // 투표장소
+						console.log(voteInfoMap.votePlaceLc); // 투표장소위치
+						*/
+
+						// row 보이는거 설정하기
+						$(".vote_box1_1").hide(); // 이름 영역
+						$(".vote_box1_2").hide(); // 주민번호 영역
+						$(".vote_box1").hide(); // 선거인 명부 조회하기
+						$(".vote_box2").show(); // 다시조회 / 이의신청 영역
+
+						var htmlstr = "<li class='vote_box3'><strong>" + $("#nm").val() + "</strong>(" + $("#brthdy").val() + ")님의 (" + voteInfoMap.sexdstn + "), 투표장소는<br/>"
+							+ voteInfoMap.votePlace + "입니다.<br/> 투표장소는 변경될 수 있으니 정확한 투표장소는 추후에 발송될 투표안내문을 참고하십시오.</li>";
+
+						$(".vote_box0").prepend(htmlstr);
+					} else { // 존재하지만 중복
+
+						var str = $("#nm").val() + "(" + $("#brthdy").val() + ")님은 중복자가 존재합니다.\n"
+							+ "정확한 확인을 위해 주민번호 끝3자리를 입력해주세요\n";
+						+ "ex) 주민번호가 '200307-1234567' 인경우, 567 입력 ";
+
+						alert(str);
+
+						$('#ihidnum').removeAttr('disabled');
+						$('#ihidnum').removeAttr('placeholder');
+						$('#ihidnum').focus();
+
+					}
+				}, error: function () {
+					console.log("fnCheckVote01");
+					alert("서버 에러가 발생했습니다. 다시 시도해주세요");
+				}
+			});
+		}
+
+		function fnObjectionVote(value) {
+			if (value == "repeat") {
+
+				$("#nm").val('');
+				$("#brthdy").val('');
+				$("#ihidnum").val('');
+				$(".vote_box1_1").show(); // 이름 영역
+				$(".vote_box1_2").show(); // 주민번호 영역
+				$(".vote_box1").show(); // 선거인 명부 조회하기
+				$(".vote_box2").hide(); // 다시조회 / 이의신청 영역
+				$(".vote_box3").hide(); // 결과문구
+				$('#ihidnum').attr('disabled', 'disabled');
+				$('#ihidnum').attr('placeholder', '*******');
+
+			} else if (value == "request") {
+
+				$("#nm").val('');
+				$("#brthdy").val('');
+				$("#ihidnum").val('');
+				$(".vote_box1").show(); // 버튼영역
+				$("#layer0327").hide(); // 조회영역
+				$("#layer0328").show(); // 이의신청영역
+
+			} else if (value == "submit") {
+				if ($(".request_sj").val() == '') {
+					alert("제목을 입력해주세요.");
+					$(".request_sj").focus();
+					return false;
+				}
+
+				if ($(".request_nm").val() == '') {
+					alert("이름을 입력해주세요.");
+					$(".request_nm").focus();
+					return false;
+				}
+
+				if ($(".request_email").val() == '') {
+					alert("이메일을 입력해주세요.");
+					$(".request_email").focus();
+					return false;
+				}
+
+				if ($(".request_telno").val() == '') {
+					alert("연락처를 입력주세요.");
+					$(".request_telno").focus();
+					return false;
+				}
+
+				if ($(".request_brthdy").val() == '') {
+					alert("생년월일을 입력해주세요.");
+					$(".request_brthdy").focus();
+					return false;
+				}
+
+				if ($(".request_password").val() == '') {
+					alert("비밀번호를 입력해주세요.");
+					$(".request_password").focus();
+					return false;
+				}
+
+				if ($(".request_cn").val() == '') {
+					alert("내용을 입력해주세요.");
+					$(".request_cn").focus();
+					return false;
+				}
+
+				if (confirm("이의제기를 하시겠습니까??")) {
+
+					// 				$("#requestForm").attr({
+					// 					action : "/danwongu/insertObjectionVote.do",
+					// 					method : "POST"
+					// 				}).submit();
+
+					$.ajax({
+						url: "/danwongu/insertObjectionVote.do",
+						type: "post",
+						data: $("#requestForm").serialize(),
+						dataType: 'json',
+						success: function (param) {
+							alert("이의제기 처리가 완료되었습니다.");
+							$("#layer0328").hide();
+						}, error: function () {
+							console.log("insertObjectionVote");
+							alert("서버 에러가 발생했습니다. 다시 시도해주세요");
+						}
+					});
+				}
+			}
+		}
+	</script>
+</head>
+	
+<body id="main">
+	<!-- accessibility -->
+	<div class="accessibility">
+		<strong class="skip">바로가기 메뉴</strong>
+		<a href="#menu">주메뉴 바로가기</a>
+		<a href="#container">본문 바로가기</a>
+	</div>
+	<!-- // accessibility -->
+
+	<!-- <div class="test"></div> -->
+
+	<!-- header -->
+	<header id="header">
+		<!-- head_link -->
+		<div class="header_top clearfix">
+			<div class="wrap clearfix">
+				<div class="left_box">
+					<ul class="clearfix">
+						<li class="on"><a href="/www/index.do" target="_blank" title="새창열림"><span>안산시청</span></a></li>
+						<li><a href="/council/index.do" target="_blank" title="새창열림"><span>안산시의회</span></a></li>
+						<li><a href="/sangnokgu/index.do" target="_blank" title="새창열림"><span>상록구청</span></a></li>
+						<li><a href="/snshealth/index.do" target="_blank" title="새창열림"><span>상록수보건소</span></a></li>
+						<li><a href="/health/index.do" target="_blank" title="새창열림"><span>단원보건소</span></a></li>
+					</ul>
+				</div>
+				<div class="right_box">
+					<ul class="sns_link clearfix">
+						<li class="facebook"><a href="https://www.facebook.com/ansancity3" target="_blank" title="새창열림">페이스북</a></li>
+						<li class="twitter"><a href="https://twitter.com/ansancityhall" target="_blank" title="새창열림">트위터</a></li>
+						<li class="kakao"><a href="https://story.kakao.com/ch/ansancity/app" target="_blank" title="새창열림">카카오톡</a></li>
+						<li class="blog"><a href="http://blog.naver.com/cityansan" target="_blank" title="새창열림">블로그</a></li>
+						<li class="instagram"><a href="https://www.instagram.com/ansancity/" target="_blank" title="새창열림">인스타그램</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- // head_top -->
+
+		<!-- header_box-->
+		<div class="header_box">
+			<div class="wrap clearfix">
+				<div class="left_box clearfix">
+					<h1 class="logo">
+						<a href="#">
+							<img src="../site/market/images/common/logo.png" alt="안산시 농산물도매시장" />
+						</a>
+					</h1>
+				</div>
+			</div>
+		</div>
+		<!-- // header_box-->
+	</header>
+	<!-- //header -->
+
+	<!-- lnb -->
+	<h2 class="skip">주메뉴</h2>
+	<div class="lnb">
+		<div class="menu">
+			<div class="nav_open" data-menu-open="menu">
+				<button class="nav_button" type="button" data-menu-button>메뉴 열기</button>
+			</div>
+	
+			<div class="wrap">
+				<div class="gnb clearfix">
+					<ul class="clearfix">
+						<li class="sitemap">
+							<a href="/danwongu/contents.do?key=1861">사이트맵</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+	
+			<nav id="menu" data-menu-type="2" data-menu-effect="3" data-menu-top-background="full" data-menu-bottom-background="full">
+				<h2 class="skip">메뉴</h2>
+				<div class="depth1 clearfix" data-menu-depth="1">
+					<ul class="depth1_list clearfix" data-menu-list="1">
+						<li class="depth1_item">
+							<a href="#" class="depth1_text" data-menu-text="1">
+								<span>관리사무소</span>
+							</a>
+							<div class="depth2" data-menu-depth="2">
+								<ul class="depth2_list" data-menu-list="2">
+									<li class="depth2_item">
+										<a href="#" class="depth2_text" data-menu-text="2">단원구에
+											바란다</a>
+									</li>
+									<li class="depth2_item">
+										<a href="#" class="depth2_text" data-menu-text="2" target="_blank" title="새창열림">도매시장 소개</a>
+									</li>
+									<li class="depth2_item">
+										<a href="#" class="depth2_text" data-menu-text="2">조직 및 직원안내</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="depth1_item">
+							<a href="#" class="depth1_text"
+								data-menu-text="1"><span>도매시장 이용안내</span></a>
+							<div class="depth2" data-menu-depth="2">
+								<ul class="depth2_list" data-menu-list="2">
+									<li class="depth2_item">
+										<a href="#" class="depth2_text" data-menu-text="2">시설현황</a>
+									</li>
+									<li class="depth2_item">
+										<a href="#" class="depth2_text" data-menu-text="2">도매시장 이용안내</a>
+									</li>
+									<li class="depth2_item">
+										<a href="#" class="depth2_text" data-menu-text="2" target="_blank" title="새창열림">시장배치도</a>
+									</li>
+									<li class="depth2_item">
+										<a href="#" class="depth2_text" data-menu-text="2">찾아오시는 길</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="depth1_item">
+							<a href="#" class="depth1_text"
+								data-menu-text="1"><span>경락정보</span></a>
+							<div class="depth2" data-menu-depth="2">
+								<ul class="depth2_list" data-menu-list="2">
+									<li class="depth2_item">
+										<a href="#" class="depth2_text" data-menu-text="2">실시간 경략정보</a>
+									</li>
+									<li class="depth2_item">
+										<a href="#" class="depth2_text" data-menu-text="2">농수산물 유통체계</a>									
+									</li>
+									<li class="depth2_item">
+										<a href="#" class="depth2_text" data-menu-text="2">경매시간</a>										
+									</li>
+									<li class="depth2_item">
+										<a href="#" class="depth2_text" data-menu-text="2">전자경매</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="depth1_item">
+							<a href="#" class="depth1_text"
+								data-menu-text="1"><span>유통종사자</span></a>
+							<div class="depth2" data-menu-depth="2">
+								<ul class="depth2_list" data-menu-list="2">
+									<li class="depth2_item">
+										<a href="#" class="depth2_text" data-menu-text="2">유통종사자 현황</a>
+									</li>
+									<li class="depth2_item">
+										<a href="#" class="depth2_text" data-menu-text="2">법인&#183;중도매인</a>								
+									</li>
+									<li class="depth2_item">
+										<a href="#" class="depth2_text" data-menu-text="2">유통종사자 교육</a>									
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="depth1_item">
+							<a href="#" class="depth1_text"
+								data-menu-text="1"><span>고객참여</span></a>
+							<div class="depth2" data-menu-depth="2">
+								<ul class="depth2_list" data-menu-list="2">
+									<li class="depth2_item">
+										<a href="#" class="depth2_text" data-menu-text="2">공지사항</a>	
+									</li>
+									<li class="depth2_item">
+										<a href="#" class="depth2_text" data-menu-text="2">고시공고</a>
+									</li>
+									<li class="depth2_item">
+										<a href="#" class="depth2_text" data-menu-text="2">관련법규</a>	
+									</li>
+									<li class="depth2_item">
+										<a href="#" class="depth2_text" data-menu-text="2">시장체험관</a>	
+									</li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</nav>
+	
+			<div class="nav_close" data-menu-close="menu">
+				<button class="nav_button" type="button" data-menu-button>메뉴 닫기</button>
+			</div>
+		</div>
+	</div>
+	<!-- // lnb -->
+
+	<!-- search -->
+	<div class="wrap">
+		<div class="search">
+			<h2 class="skip">통합검색</h2>
+			<div class="search_open_btn"><button type="button">검색영역 열기</button></div>
+			<div class="search_wrap clearfix">
+				<form action="https://www.ansan.go.kr/search/TotalSearch.jsp?" method="post">
+					<fieldset>
+						<legend>통합검색</legend>
+						<label for="query" class="skip">검색어 입력</label>
+						<input type="search" name="query" id="query" title="검색어 입력" class="text" placeholder="검색어입력" />
+						<button type="button" id="openNVK_Ko_Multi">한글 멀티 열기</button>
+	
+						<input type="submit" value="검색" class="search_submit">
+					</fieldset>
+				</form>
+			</div>
+			<div class="search_close_btn"><button type="button">검색영역 닫기</button></div>
+			<!-- 인기검색어
+			<div class="search_keyword clearfix">
+				<h3>인기검색어</h3>
+				<div class="search_keyword_control">
+					<div class="control_box clearfix">
+						<button class="prev">이전</button>
+						<button class="next">다음</button>
+					</div>
+				</div>
+				<div class="slide_box clearfix">
+					<div class="cont_box">안산시</div>
+					<div class="cont_box">상록구청</div>
+					<div class="cont_box">여권</div>
+					<div class="cont_box">여권2</div>
+				</div>
+			</div> -->
+		</div>
+		<script>
+
+			var nvk = new NeoVirtualKeyboard({ keyLayout: 'KOREAN', keyLayoutType: 'SIMPLE' });
+
+			$('#openNVK_Ko_Multi').click(function () {
+				nvk.showKeyboard(null, {
+					keyLayout: 'KOREAN',
+					keyLayoutType: 'MULTI',
+					inputElement: '#total_search',
+					offset: {
+						top: 114,
+						right: 100
+					}
+				});
+			});
+
+			$('#closeNVK').click(function () {
+				nvk.hideKeyboard();
+			});
+
+		</script>
+	</div>
+	<!-- // search -->
+	<div style="height:100vh; background:#fff;">
+
+	</div>
+	<!-- footer -->
+	<footer id="footer">
+		<div class="footer_sitelink_wrap">
+			<div class="wrap">
+				<ul class="footer_sitelink clearfix">
+					<li class="active_box">
+						<button type="button" class="active_btn" title="열기">관련사이트</button>
+						<div class="list">
+							<ul>
+								<li><a href="https://nongeop.ansan.go.kr/" target="_blank"
+										title="새창열림"><span>농업기술센터</span></a></li>
+								<li><a href="https://www.ansan.go.kr/market/05_sub/market05_01.jsp?menuId=1"
+										target="_blank" title="새창열림"><span>농수산물도매시장</span></a></li>
+								<li><a href="https://global.ansan.go.kr" target="_blank"
+										title="새창열림"><span>외국인주민지원본부</span></a></li>
+								<li><a href="https://ansan.go.kr/health/index.do" target="_blank"
+										title="새창열림"><span>단원
+											보건소</span></a></li>
+								<li><a href="https://waste.ansan.go.kr" target="_blank" title="새창열림"><span>대형폐기물
+											인터넷신고</span></a></li>
+								<li><a href="https://cdedu.ansan.go.kr" target="_blank"
+										title="새창열림"><span>민방위교육장</span></a></li>
+								<li><a href="https://www.ansan.go.kr/www/contents.do?key=13" target="_blank"
+										title="새창열림"><span>반딧불이제안세상</span></a></li>
+								<li><a href="https://ansan.go.kr/snshealth/index.do" target="_blank"
+										title="새창열림"><span>상록수 보건소</span></a></li>
+								<li><a href="https://water.ansan.go.kr" target="_blank"
+										title="새창열림"><span>상하수도사업소(수도요금)</span></a></li>
+								<li><a href="https://eco.ansan.go.kr" target="_blank"
+										title="새창열림"><span>생태자료실</span></a></li>
+								<li><a href="https://seongho.ansan.go.kr" target="_blank"
+										title="새창열림"><span>성호박물관</span></a></li>
+								<li><a href="http://ansandream.tv" target="_blank" title="새창열림"><span>소셜방송
+											안산드림TV</span></a></li>
+								<li><a href="https://lib.ansan.go.kr" target="_blank"
+										title="새창열림"><span>시립도서관</span></a></li>
+								<!--<li><a href="https://sotong.ansan.go.kr"><span>시민소통·정책자문위원회</option-->
+								<!--li><a href="https://plant.ansan.go.kr/" target="_blank" title="새창열림"><span>안산식물원</span></a></li-->
+								<li><a href="http://food.ansan.go.kr/" target="_blank"
+										title="새창열림"><span>안산모범음식점</span></a></li>
+								<!--li><a href="https://siminedu.ansan.go.kr" target="_blank" title="새창열림"><span>안산시 교육시스템</span></a></li-->
+								<li><a href="https://iedu.ansan.go.kr/portal/main/main.do" target="_blank"
+										title="새창열림"><span>안산시혁신교육협력센터</span></a></li>
+								<li><a href="https://www.ansan.go.kr/woman/Main.jsp" target="_blank"
+										title="새창열림"><span>여성비젼센터</span></a></li>
+								<li><a href="http://www.ansan.go.kr/mayor/index.do" target="_blank"
+										title="새창열림"><span>열린시장실</span></a></li>
+								<li><a href="https://www.ansan.go.kr/fin/" target="_blank"
+										title="새창열림"><span>예산공개시스템</span></a></li>
+								<li><a href="https://vod.ansan.go.kr" target="_blank"
+										title="새창열림"><span>의회인터넷방송국</span></a></li>
+								<li><a href="https://ecatalog.ansan.go.kr" target="_blank"
+										title="새창열림"><span>자료홍보관(e-book)</span></a></li>
+								<li><a href="http://www.pedalro.kr" target="_blank"
+										title="새창열림"><span>자전거홈페이지</span></a></li>
+								<li><a href="http://www.ansan.go.kr/safe/" target="_blank"
+										title="새창열림"><span>재난안전대책본부</span></a></li>
+								<li><a href="http://good.ansantalktalk.net/bbs/group.php?gr_id=policy"
+										target="_blank" title="새창열림"><span>좋은정책1번가 사이트</span></a></li>
+								<li><a href="http://car.ansan.go.kr/" target="_blank"
+										title="새창열림"><span>차량공매시스템</span></a></li>
+								<li><a href="https://choiyongshin.ansan.go.kr/" target="_blank"
+										title="새창열림"><span>최용신기념관</span></a></li>
+								<!--<li><a href="http://ansan.go.kr/stat/main.do" target="_blank" title="새창열림"><span>안산시 통계</span></a></li>-->
+								<li><a href="http://ansan.go.kr/stat/" target="_blank" title="새창열림"><span>안산시
+											통계</span></a></li>
+								<li><a href="https://learning.iansan.net/sub/main.asp" target="_blank"
+										title="새창열림"><span>평생학습관</span></a></li>
+								<li><a href="https://wm.ansan.go.kr/" target="_blank"
+										title="새창열림"><span>평생학습원</span></a></li>
+								<li><a href="https://photo.iansan.net" target="_blank"
+										title="새창열림"><span>포토갤러리</span></a></li>
+								<li><a href="http://ansantalktalk.net" target="_blank" title="새창열림"><span>e-안산톡톡
+											사이트</span></a></li>
+								<!--<li><a href="https://its.ansan.go.kr"><span>U정보센터</span></a></li>-->
+							</ul>
+						</div>
+					</li>
+					<li class="active_box">
+						<button type="button" class="active_btn" title="열기">소속/유관기관 홈페이지</button>
+						<div class="list">
+							<ul>
+								<li><a href="http://ansan.familynet.or.kr/" target="_blank" title="새창열림"><span>-
+											건강가정지원센터</span></a></li>
+								<li><a href="https://www.ansanart.com/main/danwon/index.do" target="_blank"
+										title="새창열림"><span>- 단원미술관</span></a></li>
+								<li><a href="http://daebudo.invil.org" target="_blank" title="새창열림"><span>-
+											대부도정보화마을</span></a></li>
+								<li><a href="http://center.ansanbo6.or.kr/" target="_blank" title="새창열림"><span>-
+											안산시육아종합지원센터</span></a></li>
+								<li><a href="http://www.ansanuc.net/" target="_blank" title="새창열림"><span>-
+											안산도시공사</span></a></li>
+								<li><a href="http://www.ansanart.com/" target="_blank" title="새창열림"><span>-
+											안산문화예술의전당</span></a></li>
+								<li><a href="http://www.ansanculture.or.kr/" target="_blank" title="새창열림"><span>-
+											안산문화원</span></a></li>
+								<li><a href="http://www.ansanarts.com/" target="_blank" title="새창열림"><span>-
+											안산시립예술단</span></a></li>
+								<li><a href="http://www.eg21.kr/" target="_blank" title="새창열림"><span>-
+											안산환경재단</span></a>
+								</li>
+								<li><a href="http://www.ansanuc.net/home/10058/40049/contents.do" target="_blank"
+										title="새창열림"><span>- 안산와∼스타디움</span></a></li>
+								<li><a href="http://www.ansanyouth.or.kr/" target="_blank" title="새창열림"><span>-
+											안산청소년수련관</span></a></li>
+								<li><a href="http://www.aycc.org/" target="_blank" title="새창열림"><span>-
+											안산청소년상담복지센터</span></a></li>
+								<li><a href="http://www.ansanpact.org/" target="_blank" title="새창열림"><span>-
+											안산투명사회협의회</span></a></li>
+								<li><a href="http://www.ahev.go.kr/" target="_blank" title="새창열림"><span>-
+											안산화정영어마을</span></a></li>
+								<li><a href="http://www.ansan1365.or.kr/" target="_blank" title="새창열림"><span>-
+											안산시자원봉사센터</span></a></li>
+								<li><a href="#"><span> 유 관 기 관 홈페이지</span></a></li>
+								<li><a href="http://suwon.scourt.go.kr/jibubmgr/jurisdiction/Jurisdiction.work?bub_cd=250826"
+										target="_blank" title="새창열림"><span>- 수원지법 안산지원</span></a></li>
+								<li><a href="http://www.spo.go.kr/ansan/index.jsp" target="_blank"
+										title="새창열림"><span>-
+											수원지검 안산지청</span></a></li>
+								<li><a href="http://www.goeas.kr" target="_blank" title="새창열림"><span>- 안산
+											교육청</span></a>
+								</li>
+								<li><a href="http://www.ggpolice.go.kr/assn/" target="_blank" title="새창열림"><span>-
+											안산상록경찰서</span></a></li>
+								<li><a href="http://www.ggpolice.go.kr/ansan/" target="_blank" title="새창열림"><span>-
+											안산단원경찰서</span></a></li>
+								<li><a href="http://j.nts.go.kr/as" target="_blank" title="새창열림"><span>- 안산
+											세무서</span></a></li>
+								<li><a href="http://www.moel.go.kr/local/ansan/index.do" target="_blank"
+										title="새창열림"><span>- 고용노동부 안산지청</span></a></li>
+								<li><a href="http://119.gg.go.kr/ansan" target="_blank" title="새창열림"><span>- 안산
+											소방서</span></a></li>
+								<li><a href="http://www.koreapost.go.kr/gi/425" target="_blank" title="새창열림"><span>-
+											안산우체국</span></a></li>
+							</ul>
+						</div>
+					</li>
+					<li class="active_box">
+						<button type="button" class="active_btn" title="열기">실/과/소 부서안내</button>
+						<div class="list">
+							<ul>
+								<!-- <li><a href="/department/futureStrategy/DeptIntroduction.jsp?menuId=01070250"><span>[ 미래전략관 ]</span></a></li> -->
+								<li><a href="/mayor/index.do" target="_blank" title="새창열림"><span>[ 열린 시장실
+											]</span></a>
+								</li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000002&sDeptCode=A020"
+										target="_blank" title="새창열림"><span>[ 공보관 ]</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000021&sDeptCode=A080"
+										target="_blank" title="새창열림"><span>[ 시민소통관 ]</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000001&sDeptCode=A030"
+										target="_blank" title="새창열림"><span>[ 감사관 ]</span></a></li>
+
+								<li><a href="#n"><span>[ 기획경제실 ]</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000013&sDeptCode=A100"
+										target="_blank" title="새창열림"><span>- 기획예산과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000013&sDeptCode=A145"
+										target="_blank" title="새창열림"><span>- 신성장전략과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000013&sDeptCode=A110"
+										target="_blank" title="새창열림"><span>- 혁신법무과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000013&sDeptCode=A140"
+										target="_blank" title="새창열림"><span>- 상생경제과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000013&sDeptCode=A200"
+										target="_blank" title="새창열림"><span>- 일자리정책과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000013&sDeptCode=A120"
+										target="_blank" title="새창열림"><span>- 공정조세과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000013&sDeptCode=A125"
+										target="_blank" title="새창열림"><span>- 성실납세과</span></a></li>
+
+								<li><a href="#n"><span>[ 문화체육관광국 ]</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000011&sDeptCode=A380"
+										target="_blank" title="새창열림"><span>- 문화예술과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000011&sDeptCode=A390"
+										target="_blank" title="새창열림"><span>- 체육진흥과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000011&sDeptCode=A400"
+										target="_blank" title="새창열림"><span>- 관광과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000011&sDeptCode=A090"
+										target="_blank" title="새창열림"><span>- 정보콘텐츠과</span></a></li>
+
+								<li><a href="#n"><span>[ 복지국 ]</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000011&sDeptCode=A170"
+										target="_blank" title="새창열림"><span>- 복지정책과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000011&sDeptCode=A180"
+										target="_blank" title="새창열림"><span>- 노인복지과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000011&sDeptCode=A185"
+										target="_blank" title="새창열림"><span>- 장애인복지과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000011&sDeptCode=A190"
+										target="_blank" title="새창열림"><span>- 여성가족과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000011&sDeptCode=A561"
+										target="_blank" title="새창열림"><span>- 보육정책과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000011&sDeptCode=A210"
+										target="_blank" title="새창열림"><span>- 위생정책과</span></a></li>
+
+								<li><a href="#n"><span>[ 도시디자인국 ]</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000008&sDeptCode=A220"
+										target="_blank" title="새창열림"><span>- 도시계획과</span></a></li>
+								<!--
+										<li><a href="/department/cityDesign/DeptIntroduction.jsp?menuId=01070141" target="_blank" title="새창열림"><span>- 도시디자인과</span></a></li> -->
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000008&sDeptCode=A230"
+										target="_blank" title="새창열림"><span>- 도시재생과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000008&sDeptCode=A240"
+										target="_blank" title="새창열림"><span>- 건축디자인과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000008&sDeptCode=A565"
+										target="_blank" title="새창열림"><span>- 주택과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000008&sDeptCode=A310"
+										target="_blank" title="새창열림"><span>- 녹지과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000008&sDeptCode=A320"
+										target="_blank" title="새창열림"><span>- 공원과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000008&sDeptCode=A270"
+										target="_blank" title="새창열림"><span>- 토지정보과</span></a></li>
+
+								<li><a href="#n"><span>[ 환경교통국 ]</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000025&sDeptCode=A290"
+										target="_blank" title="새창열림"><span>- 환경정책과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000025&sDeptCode=A160"
+										target="_blank" title="새창열림"><span>- 에너지정책과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000025&sDeptCode=A300"
+										target="_blank" title="새창열림"><span>- 자원순환과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000025&sDeptCode=A250"
+										target="_blank" title="새창열림"><span>- 건설도로과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000025&sDeptCode=A330"
+										target="_blank" title="새창열림"><span>- 교통정책과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000025&sDeptCode=A340"
+										target="_blank" title="새창열림"><span>- 대중교통과</span></a></li>
+
+								<li><a href="#n"><span>[ 행정안전국 ]</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000024&sDeptCode=A040"
+										target="_blank" title="새창열림"><span>- 총무과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000024&sDeptCode=A260"
+										target="_blank" title="새창열림"><span>- 안전사회지원과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000024&sDeptCode=A050"
+										target="_blank" title="새창열림"><span>- 자치행정과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000024&sDeptCode=A060"
+										target="_blank" title="새창열림"><span>- 회계과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000024&sDeptCode=A563"
+										target="_blank" title="새창열림"><span>- 세월호참사수습지원단</span></a></li>
+
+								<li><a href="https://ansan.go.kr/snshealth/contents.do?key=1575" target="_blank"
+										title="새창열림"><span>[ 상록수보건소 ]</span></a></li>
+								<li><a href="https://ansan.go.kr/health/contents.do?key=1192" target="_blank"
+										title="새창열림"><span>[ 단원보건소 ]</span></a></li>
+								<li><a href="#n"><span>[ 농업기술센터 ]</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000024&sDeptCode=A370"
+										target="_blank" title="새창열림"><span>- 농업정책과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000024&sDeptCode=A371"
+										target="_blank" title="새창열림"><span>- 농업기술지원과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000024&sDeptCode=A540"
+										target="_blank" title="새창열림"><span>- 농수산물도매시장 관리과</span></a></li>
+								<li><a href="#n"><span>[ 대부해양본부 ]</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000007&sDeptCode=A566"
+										target="_blank" title="새창열림"><span>- 대부개발과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000007&sDeptCode=A410"
+										target="_blank" title="새창열림"><span>- 해양수산과</span></a></li>
+								<li><a href="#n"><span>[ 산업지원본부 ]</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000016&sDeptCode=A420"
+										target="_blank" title="새창열림"><span>- 산업진흥과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000016&sDeptCode=A430"
+										target="_blank" title="새창열림"><span>- 기업지원과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000016&sDeptCode=A440"
+										target="_blank" title="새창열림"><span>- 산단환경과</span></a></li>
+								<li><a href="#n"><span>[ 평생학습원 ]</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000023&sDeptCode=A070"
+										target="_blank" title="새창열림"><span>- 평생학습과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000023&sDeptCode=A550"
+										target="_blank" title="새창열림"><span>- 교육청소년과</span></a></li>
+								<li><a href="https://lib.ansan.go.kr" target="_blank" title="새창열림"><span>-
+											중앙도서관</span></a></li>
+								<li><a href="https://lib.ansan.go.kr/main.do?fn_seq=&srcYear=2018&srcMonth=1&sitekey1=4&minisitekey=&gwan1="
+										target="_blank" title="새창열림"><span>- 감골도서관</span></a></li>
+								<li><a href="https://lib.ansan.go.kr/main.do?fn_seq=&srcYear=2018&srcMonth=1&sitekey1=2&minisitekey=&gwan1="
+										target="_blank" title="새창열림"><span>- 관산도서관</span></a></li>
+								<li><a href="#n"><span>[ 상하수도사업소 ]</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000018&sDeptCode=A450"
+										target="_blank" title="새창열림"><span>- 수도행정과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000018&sDeptCode=A460"
+										target="_blank" title="새창열림"><span>- 수도시설과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000018&sDeptCode=A470"
+										target="_blank" title="새창열림"><span>- 정수과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000018&sDeptCode=A480"
+										target="_blank" title="새창열림"><span>- 하수과</span></a></li>
+								<li><a href="#n"><span>[ 외국인주민지원본부 ]</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000019&sDeptCode=A490"
+										target="_blank" title="새창열림"><span>- 외국인주민정책과</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000019&sDeptCode=A569"
+										target="_blank" title="새창열림"><span>- 외국인주민지원과</span></a></li>
+								<li><a href="#n"><span>[ 사업소 ]</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000019&sDeptCode=A530"
+										target="_blank" title="새창열림"><span>- 차량등록사업소</span></a></li>
+								<li><a href="/www/deptMngList.do?key=778&deptCode=00000019&sDeptCode=A520"
+										target="_blank" title="새창열림"><span>- 도시정보센터</span></a></li>
+								<!--li><a href="/www/deptMngList.do?key=778&deptCode=00000015&sDeptCode=A540" target="_blank" title="새창열림"><span>- 농수산물도매시장관리사무소</span></a></li-->
+							</ul>
+						</div>
+					</li>
+					<li class="active_box">
+						<button type="button" class="active_btn" title="열기">구청 및 행정복지센터</button>
+						<div class="list">
+							<ul>
+								<li><a href="http://ansan.go.kr/sangnokgu/index.do" target="_blank"
+										title="새창열림"><span>[
+											상록구청 ]</span></a></li>
+								<li><a href="http://sangnok-gu.ansan.go.kr/dongoffice/01_dong/index.jsp"
+										target="_blank" title="새창열림"><span>- 일동행정복지센터 </span></a></li>
+								<li><a href="http://sangnok-gu.ansan.go.kr/dongoffice/02_dong/index.jsp"
+										target="_blank" title="새창열림"><span>- 이동행정복지센터 </span></a></li>
+								<li><a href="http://sangnok-gu.ansan.go.kr/dongoffice/03_dong/index.jsp"
+										target="_blank" title="새창열림"><span>- 사동행정복지센터 </span></a></li>
+								<li><a href="http://sangnok-gu.ansan.go.kr/dongoffice/04_dong/index.jsp"
+										target="_blank" title="새창열림"><span>- 사이동행정복지센터 </span></a></li>
+								<li><a href="http://sangnok-gu.ansan.go.kr/dongoffice/05_dong/index.jsp"
+										target="_blank" title="새창열림"><span>- 해양동행정복지센터 </span></a></li>
+								<li><a href="http://sangnok-gu.ansan.go.kr/dongoffice/06_dong/index.jsp"
+										target="_blank" title="새창열림"><span>- 본오1동행정복지센터 </span></a></li>
+								<li><a href="http://sangnok-gu.ansan.go.kr/dongoffice/07_dong/index.jsp"
+										target="_blank" title="새창열림"><span>- 본오2동행정복지센터 </span></a></li>
+								<li><a href="http://sangnok-gu.ansan.go.kr/dongoffice/08_dong/index.jsp"
+										target="_blank" title="새창열림"><span>- 본오3동행정복지센터 </span></a></li>
+								<li><a href="http://sangnok-gu.ansan.go.kr/dongoffice/09_dong/index.jsp"
+										target="_blank" title="새창열림"><span>- 부곡동행정복지센터 </span></a></li>
+								<li><a href="http://sangnok-gu.ansan.go.kr/dongoffice/10_dong/index.jsp"
+										target="_blank" title="새창열림"><span>- 월피동행정복지센터 </span></a></li>
+								<li><a href="http://sangnok-gu.ansan.go.kr/dongoffice/11_dong/index.jsp"
+										target="_blank" title="새창열림"><span>- 성포동행정복지센터 </span></a></li>
+								<li><a href="http://sangnok-gu.ansan.go.kr/dongoffice/12_dong/index.jsp"
+										target="_blank" title="새창열림"><span>- 반월동행정복지센터 </span></a></li>
+								<li><a href="http://sangnok-gu.ansan.go.kr/dongoffice/13_dong/index.jsp"
+										target="_blank" title="새창열림"><span>- 안산동행정복지센터 </span></a></li>
+								<li><a href="http://danwon-gu.ansan.go.kr/" target="_blank" title="새창열림"><span>[
+											단원구청
+											]</span></a></li>
+								<li><a href="http://danwon-gu.ansan.go.kr/dongoffice/14_dong/index.jsp"
+										target="_blank" title="새창열림"><span>- 와동행정복지센터 </span></a></li>
+								<li><a href="http://danwon-gu.ansan.go.kr/dongoffice/15_dong/index.jsp"
+										target="_blank" title="새창열림"><span>- 고잔동행정복지센터 </span></a></li>
+								<li><a href="http://danwon-gu.ansan.go.kr/dongoffice/16_dong/index.jsp"
+										target="_blank" title="새창열림"><span>- 중앙동행정복지센터 </span></a></li>
+								<li><a href="http://danwon-gu.ansan.go.kr/dongoffice/17_dong/index.jsp"
+										target="_blank" title="새창열림"><span>- 호수동행정복지센터 </span></a></li>
+								<li><a href="http://danwon-gu.ansan.go.kr/dongoffice/18_dong/index.jsp"
+										target="_blank" title="새창열림"><span>- 원곡동행정복지센터 </span></a></li>
+								<li><a href="http://danwon-gu.ansan.go.kr/dongoffice/20_dong/index.jsp"
+										target="_blank" title="새창열림"><span>- 백운동행정복지센터 </span></a></li>
+								<li><a href="http://danwon-gu.ansan.go.kr/dongoffice/26_dong/index.jsp"
+										target="_blank" title="새창열림"><span>- 신길동행정복지센터 </span></a></li>
+								<li><a href="http://danwon-gu.ansan.go.kr/dongoffice/21_dong/index.jsp"
+										target="_blank" title="새창열림"><span>- 초지동행정복지센터</span></a></li>
+								<li><a href="http://danwon-gu.ansan.go.kr/dongoffice/22_dong/index.jsp"
+										target="_blank" title="새창열림"><span>- 선부1동행정복지센터 </span></a></li>
+								<li><a href="http://danwon-gu.ansan.go.kr/dongoffice/23_dong/index.jsp"
+										target="_blank" title="새창열림"><span>- 선부2동행정복지센터 </span></a></li>
+								<li><a href="http://danwon-gu.ansan.go.kr/dongoffice/24_dong/index.jsp"
+										target="_blank" title="새창열림"><span>- 선부3동행정복지센터 </span></a></li>
+								<li><a href="http://danwon-gu.ansan.go.kr/dongoffice/25_dong/index.jsp"
+										target="_blank" title="새창열림"><span>- 대부동행정복지센터 </span></a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="wrap">
+			<div class="footer_nav">
+				<ul class="clearfix">
+					<li><a href="/www/contents.do?key=562" target="_blank" title="새창 바로가기">개인정보처리방침</a></li>
+					<li><a href="/www/contents.do?key=559" target="_blank" title="새창 바로가기">홈페이지이용안내</a></li>
+					<li><a href="/www/selectBbsNttList.do?bbsNo=815&key=566" target="_blank"
+							title="새창 바로가기">영상정보처리기기운영
+							관리방침</a></li>
+
+					<li><a href="/www/contents.do?key=567" target="_blank" title="새창 바로가기">저작권정책</a></li>
+					<li><a href="/www/selectBbsNttList.do?bbsNo=927&key=563" target="_blank"
+							title="새창 바로가기">개인정보위탁현황</a></li>
+					<li><a href="/www/contents.do?key=78" target="_blank" title="새창 바로가기">행정서비스헌장</a></li>
+					<li><a href="/www/contents.do?key=569" target="_blank" title="새창 바로가기">뷰어다운로드</a></li>
+					<li><a href="/www/contents.do?key=575" target="_blank" title="새창 바로가기">RSS 서비스</a></li>
+					<li><a href="/danwongu/contents.do?key=1861">사이트맵</a></li>
+					<li><a href="/danwongu/contents.do?key=1156">찾아오시는길</a></li>
+					<!-- 				<li><a href="http://mail.iansan.net" target="_blank" title="새창열림">안산메일</a></li> -->
+				</ul>
+			</div>
+
+			<div class="footer_contents clearfix">
+				<div class="footer_logo"><img src="../site/danwongu/images/common/footer_logo.png" alt="안산시" /></div>
+				<div class="footer_callcenter">안산시민원콜센터<br /><strong>1666-1234</strong></div>
+				<div class="footer_info">
+					<address><span>15396 경기도 안산시 단원구 화랑로 250 (초지동)</span></address>
+					<p>COPYRIGHT ⓒ 2019 ANSAN CITY HALL</p>
+				</div>
+			</div>
+			<ul class="footer_mark">
+				<!--<li><a href="/site/www/images/common/home_mark1.jpg" target="_blank" title="새창열림"><img src="/site/www/images/common/footer_icon1.png" alt="best HRD 인적자원개발 우수기관" /></a></li>
+		<li><a href="/site/www/images/common/home_qr.jpg" target="_blank" title="새창열림"><img src="/site/www/images/common/footer_icon2.gif" alt="안산시청 모바일 홈페이지 QR 코드" /></a></li>-->
+			</ul>
+		</div>
+	</footer>
+	<!-- // footer -->
+
+	<!-- start : votePopup -->
+	<!-- <div id="layer0327">
+			<form name="frm" id="checkForm" method="post">
+			<div class="vote_wrap">
+				<div class="vote_top">
+				<h1>제21대 국회의원선거<span style="display:block">선거인명부 인터넷 열람</span></h1>
+						<div class="np_bt">
+							<div class="np_sns_list">
+								<a href="#n" title="sns공유"><img src="/site/www/images/popup/icon_share.png" alt="sns공유"></a>
+								<ul>
+									<li id="share_popup_twitter"><a href="#"><img src="/site/www/images/popup/ico_twitter.png" alt="트위터에 공유하기"></a></li>
+									<li id="share_popup_facebook"><a href="#"><img src="/site/www/images/popup/ico_facebook.png" alt="페이스북에 공유하기"></a></li>
+									<li id="share_popup_kko"><a href="#"><img src="/site/www/images/popup/ico_kakao.png" alt="카카오톡에 공유하기"></a></li>
+									<li id="share_popup_story"><a href="#"></a></li>
+									<li id="share_popup_band"><a href="#" ><img src="/site/www/images/popup/ico_band.png" alt="네이버밴드에 공유하기"></a></li>
+								</ul>
+							</div>	
+							<div class="np_print"><a href="#n" onclick="window.print();" title="프린트"><img src="/site/www/images/popup/icon_print.png" alt="프린트"></a></div>
+						</div>
+				</div>
+	
+				<div class="vote_detail">
+				<ul class="vote_blet">
+					<li><h3>선 거 일 : 2020.4.15.(수) 06:00~18:00</h3></li>
+					<li><h3>열람기간 : <span class="vote_point">2020.4.4.(토) 00:00 ~ 4.15.(수) 18:00</span></h3></li>
+					<li><h3>열람장소 : 시·구청 홈페이지</h3>
+					<span style="display:block">*각 행정복지센터 직접 열람 병행 (09:00~18:00)<br>
+					*중복시 : 주민등록번호 끝자리 3자리 입력 <span style="display:block">예) 111111-1234567 의 567 입력</span></span>
+						<span class="vote_point">※ 안산시민만 열람 가능합니다.</span></li>    
+					<li><h3>열람하기</h3>
+					<div class="vote_wrights">
+						<input name="seq" type="hidden" value="ssn1" />
+						<div id="frmSearch" style="display:block">
+						<ul class="vote_frmSearch_con vote_box0">
+							<li class="vote_box1_1"><label for="nm">이름</label>:
+							<input id="nm" name="nm" type="text" class="vote_input search_nm" title="이름 입력" />
+							</li>
+							<li class="vote_box1_2"><label for="ssn1">주민등록번호</label>:
+							<div><input id="brthdy" name="brthdy" type="text" class="vote_input search_brthdy" placeholder="생년월일 6자리" maxlength="6" /> - <input id="ihidnum" name="ihidnum" type="text" disabled="disabled" placeholder="*******" maxlength="3" class="vote_input search_ihidnum" /></div>
+							</li>
+							<li class="vote_box1">
+								<a href="#" onclick="javascript:fnCheckVote();">조회하기</a>
+							</li>
+							<li class="vote_box2">
+								<a href="#" style="" onclick="fnObjectionVote('repeat'); return false;">다시조회하기</a>
+								<a href="#" style="" onclick="fnObjectionVote('request'); return false;">이의신청하기</a>
+							</li>
+						</ul>
+						</div>
+					</div>
+					</li>
+				</ul>
+				</div>
+			</div>
+			</form>
+			<div class="vote_footer">
+						<span class="vote_f_today">
+							<input type="checkbox" name="vote_close" id="vote_close" class="" value="Y" /><label for="vote_close">오늘 더이상 보지 않기</label>
+						</span>
+					<span class="vote_f_close">
+							<a style="border: 0;" href="#n" name="close" onclick="javascript:closewin();">닫기</a>
+					</span>
+					</div>
+			</div>
+				
+			<div id="layer0328" style="display: none;">
+				<form name="frm" id="requestForm" method="post">
+					<div class="vote_wrap">
+						<div class="vote_top">
+						<h1><span style="display:block">이의신청하기</span></h1>
+						</div>
+						<div class="vote_detail">
+							<div id="frmSearch" style="display:block">
+								<ul class="vote_frmSearch_con">
+									<li><label for="nm">제 목</label>:
+										<input id="sj" name="sj" type="text" class="vote_input w400 request_sj" title="제목 입력" />
+									</li>
+									<li><label for="">이 름</label>:
+										<input id="nm" name="nm" type="text" class="vote_input w200 request_nm" title="이름 입력" />
+									</li>
+									<li><label for="">이메일</label>:
+										<input type="text" id="email" name="email" class="vote_input w200 request_email" title="이메일 입력" />
+									</li>
+									<li><label for="">연락처</label>:
+										<input type="text" name="telno" id="telno" class="vote_input w200 request_telno" />
+									</li>
+									<li><label for="">생년월일</label>:
+										<input type="text" name="brthdy" size="8" class="vote_input w200 request_brthdy" maxlength="6" /> <span class="vote_color">예)1985년 03월 25일 -> 850325</span>
+									</li>
+									<li><label for="">비밀번호</label>:
+										<input type="password" name="password" class="vote_input w200 request_password" size="20" maxlength="4" />
+									</li>
+									<li><label for="">신청내용</label>:
+										<textarea name="cn" style="width:98%;" class="vote_textarea request_cn" rows="4"></textarea>
+									</li>
+								</ul>
+							</div>
+							<ul class="vote_frmSearch_con">
+								<li class="vote_box1">
+									<a href="#" style="" onclick="fnObjectionVote('submit'); return false;">저장하기</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="vote_footer">
+					<span class="vote_f_close">
+							<a style="border: 0;" href="#n" name="close" onclick="javascript:closewin();">닫기</a>
+					</span>
+					</div>
+			</div> -->
+	<!-- end : votePopup -->
+
+	<!-- sns 열고 닫기_20200313 -->
+	<script>
+		$('.np_sns_list a').click(function () {
+			console.log($(this).hasClass('active'));
+			var title = $(this).hasClass('active');
+			if (title) $(this).siblings('ul').animate({ right: "-250px" }, 300);
+			else $(this).siblings('ul').animate({ right: "40px" }, 300);
+			$(this).toggleClass('active');
+		});
+	</script>
+	<!-- end : sns 열고 닫기_20200313 -->
+
+	<div id="scrollbar"></div>
+</body>
+</html>

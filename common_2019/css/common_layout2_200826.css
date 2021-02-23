@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+/** 200826 추가 **/
+
+/* 단원구청, 상록구청 1차 메뉴 행정복지센터 추가 */
+[data-menu-type='2'] .depth1_item.welfare.active [data-menu-text='1'] {color:#fff; font-weight:normal;}
+[data-menu-type] ul[data-menu-list].clearfix > li.welfare {overflow: hidden; float: right; position: relative; width: 190px; background: url(../images/common/depth_bg1.jpg) no-repeat;}
+#menu .welfare > a:after {display: block; position: absolute; top: 50%; left: 5%; width: 100%; height: 100%; z-index: 1; transition: all 0.5s; opacity: 1; transform: translate(-13%,-190%) rotate(-10deg); border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgba(255,255,255,1);  background-color: rgba(255,255,255,0.45); background-image: none !important;}
+#menu .welfare > a:hover:after {opacity: 0; transform: translate(0,0);}
+.welfare::after {display: block; position: absolute; top: -16px; right: 0; z-index: 5; width: 58px; height: 50px; background: url(../images/common/heart.png) no-repeat center;}
+.welfare:hover::after, .welfare:focus::after, .welfare.active::after {animation: heart 1.5s alternate infinite;}
+@keyframes heart {
+    0% {top:-16px;}
+    50% {top: -5px;}
+	100% {top: -16px;}
+}
+.welfare .depth1_text {color: #fff;}
+
+
+/********* respond *********/
+
+@media only screen and (max-width: 1200px) {
+    /* lnb */
+    [data-menu-type] ul[data-menu-list].clearfix > li.welfare {width: 140px;}
+}
+
+@media only screen and (max-width: 1000px) {
+    [data-menu-type] ul[data-menu-list].clearfix > li.welfare {float: none; background: none;}
+    #menu .welfare > a:after, .welfare::after {display: none;}
+    [data-menu-type='2'] .depth1_item.welfare.active [data-menu-text='1'] {color: #004ca2;}
+}

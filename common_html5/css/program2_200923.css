@@ -1,0 +1,7 @@
+@charset "UTF-8";
+
+/** 200923 추가 **/
+
+/* 테이블 간격 수정 */
+.p-table th:first-child, .p-table th:last-child {width: 9%;}
+.p-table th:nth-last-child(2) {width: 13%;}

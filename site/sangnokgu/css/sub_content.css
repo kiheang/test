@@ -1,0 +1,95 @@
+/* (주)한신정보기술 안희정 - 2019.11 */
+
+
+/* 상록구소개 - 구정 기본방향 */
+.cts1310 .temp_step_wrap .temp_step_box > li{border:none; color:#fff;}
+.cts1310 .temp_step_wrap .temp_step_box > li:first-child{background-color:#5A9BD3;}
+.cts1310 .temp_step_wrap .temp_step_box > li:nth-child(2){background-color:#4372C4;}
+.cts1310 .temp_step_wrap .temp_step_box > li:nth-child(3){background-color:#ED7D31;}
+.cts1310 .temp_step_wrap .temp_step_box > li:last-child{background-color:#F3C019; color:#000;}
+
+.cts1310 .gc_basic{border:1px solid #cdcdcd; padding:20px;}
+.cts1310 .gc_basic .gc_basic_ul{font-size:0; line-height:0;}
+.cts1310 .gc_basic .gc_basic_ul .gc_basic_li{display:inline-block; position:relative; width:150px; height:150px; margin:calc((100% - 600px) / 8); border-radius:100%; text-align:center;}
+.cts1310 .gc_basic .gc_basic_ul .gc_basic_li:before{display:inline-block; position:absolute; right:-50%; top:50%; width:50%; height:1px; background-color:#cdcdcd;}
+.cts1310 .gc_basic .gc_basic_ul .gc_basic_li .inner{display:table; width: 100%; height:100%;}
+.cts1310 .gc_basic .gc_basic_ul .gc_basic_li:nth-child(1){background-color:#5A9BD3;}
+.cts1310 .gc_basic .gc_basic_ul .gc_basic_li:nth-child(1) span{color:#fff;}
+.cts1310 .gc_basic .gc_basic_ul .gc_basic_li:nth-child(2){background-color:#4372C4;}
+.cts1310 .gc_basic .gc_basic_ul .gc_basic_li:nth-child(2) span{color:#fff;}
+.cts1310 .gc_basic .gc_basic_ul .gc_basic_li:nth-child(3){background-color:#ED7D31;}
+.cts1310 .gc_basic .gc_basic_ul .gc_basic_li:nth-child(4){background-color:#F3C019;}
+.cts1310 .gc_basic .gc_basic_ul .gc_basic_li:nth-child(4):before{display:none;}
+.cts1310 .gc_basic .gc_basic_ul .gc_basic_li span{display:table-cell; font-size:16px; line-height:24px; color:#000;  vertical-align: middle;}
+
+@media all and (max-width:800px) {
+    .cts1310 .gc_basic .gc_basic_ul .gc_basic_li{width:120px; height:120px; margin:calc((100% - 480px) / 8);}
+}
+
+@media all and (max-width:640px) {
+    .cts1310 .gc_basic .gc_basic_ul .gc_basic_li{margin:20px calc((100% - 120px) / 2);}
+    .cts1310 .gc_basic .gc_basic_ul .gc_basic_li:before{right:auto; left:50%; top:auto; bottom:-50%; width:1px; height:50%; background-color:#cdcdcd;}
+}
+
+/* 상록구소개 - 일반현황 */
+.cts1311 .general_status{padding:10px; border:1px solid #cdcdcd;}
+.cts1311 .general_status .contbox{position:relative; padding-left:200px; min-height:128px; background-position:left; background-repeat:no-repeat; background-image:url(/site/sangnokgu/images/contents/img_contents_0104.jpg);}
+.cts1311 .general_status .contbox.list1{background-position:left -15px;}
+.cts1311 .general_status .contbox.list2{background-position:left -245px;}
+.cts1311 .general_status .contbox.list3{background-position:left -474px;}
+.cts1311 .general_status .contbox.list4{background-position:left -704px;}
+.cts1311 .general_status .contbox.list5{background-position:left -934px;}
+.cts1311 .general_status .contbox.list6{background-position:left -1164px;}
+
+@media all and (max-width:640px) {
+    .cts1311 .general_status .contbox{padding-left:0; background:none;}
+}
+
+/* 상록구소개 - 구청 오시는길 */
+.cts1314 .border_box dl{padding:5px 0;}
+.cts1314 .border_box dt, .cts1314 .border_box dd{display: inline-block;}
+.cts1314 .border_box dt{position:relative; padding-left:22px; padding-right:10px; font-weight:600; font-size:17px;}
+.cts1314 .border_box dt:before{display:inline-block; position:absolute; left:4px; top:3px; width:15px; height:24px; background-repeat:no-repeat; background-image:url(/site/sangnokgu/images/contents/bul_contents_0107.gif);}
+.cts1314 .border_box .root_daum_roughmap{width:calc(100% - 20px);}
+
+/* 행정서비스헌장 TabMenu */
+@media all and (max-width:800px) {
+    .cts1321 .tab_menu li a,
+    .cts1322 .tab_menu li a,
+    .cts1323 .tab_menu li a,
+    .cts1324 .tab_menu li a,
+    .cts1325 .tab_menu li a,
+    .cts1326 .tab_menu li a,
+    .cts1327 .tab_menu li a,
+    .cts1328 .tab_menu li a {font-size:16px;}
+}
+
+@media all and (max-width:640px) {
+    .cts1321 .tab_menu li a,
+    .cts1322 .tab_menu li a,
+    .cts1323 .tab_menu li a,
+    .cts1324 .tab_menu li a,
+    .cts1325 .tab_menu li a,
+    .cts1326 .tab_menu li a,
+    .cts1327 .tab_menu li a,
+    .cts1328 .tab_menu li a {font-size:13px;}
+}
+
+/* 부서행정 > 행정지원과 > 시민정보화교육 */
+.icon_box.internet .box_wrap{min-height:95px;}
+.icon_box.internet .box_wrap:before{top: 38px;left: 15px;width: 180px;height: 102px; background-image:url(/site/sangnokgu/images/contents/bg_page_description_0204.jpg);background-position:-56px -13px;}
+
+@media all and (max-width:640px) {
+    .icon_box.internet .box_wrap:before{left: calc(50% - 90px);}
+}
+
+/* 부서행정 > 행정지원과 > 정보통신공사 사용전검사 */
+.cts1339 .divide2{font-size:0; line-height:0;}
+.cts1339 .divide2 .inbox{display:inline-block; margin-right:50px; vertical-align:top; }
+.cts1339 .divide2 .inbox h4{margin-bottom:15px;}
+
+/* 부서행정 > 행정지원과 > 상록시민홀대관 */
+
+.cts1340 .border_box .leftbox{display:inline-block; margin-top:15px; margin-right:20px; vertical-align:top;}
+.cts1340 .border_box .contbox{display:inline-block; width:calc(100% - 240px);}
+.cts1340 .border_box .contbox h3{margin-top:10px;}

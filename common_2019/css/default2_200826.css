@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+/** 200826 추가 **/
+
+/* 공통 */
+html, body {height: 100%; font-family: "Noto Sans KR", "Roboto", sans-serif;}
+img {border: none; width: auto;}
+ul,ol,li {margin: 0; padding: 0; list-style: none;}

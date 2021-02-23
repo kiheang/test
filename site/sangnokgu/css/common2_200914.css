@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+
+/** 200911 추가 **/
+
+/* 사이트맵 오른쪽 선 삭제 */
+.lnb .gnb > ul > li:first-child a:before {display:none;}
+
+
+/** 200914 추가 **/
+
+/* 1차메뉴 */
+[data-menu-type="2"] ul[data-menu-list="1"] > li{width:13.6%;}
+
+
+/* 로고 */
+@media (max-width: 1000px) {
+    #header .header_box .left_box .logo{padding-top:20px;}
+    #header .header_box .left_box .logo a {width: 173px; height: 29px; background: url(../images/common/m_logo.png) no-repeat; background-size: 100%;}
+	#header .header_box .left_box .logo a img{display: none;}
+}
